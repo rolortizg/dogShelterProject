@@ -8,6 +8,9 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+const session      = require('express-session')
+const MongoStore = require('connect-mongo')(session);
+
 
 
 mongoose.Promise = Promise;
@@ -37,14 +40,31 @@ app.use(require('node-sass-middleware')({
   dest: path.join(__dirname, 'public'),
   sourceMap: true
 }));
-      
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
+//Passport
+const passport = require('./helpers/passport');
+app.use(passport.initialize());
+app.use(passport.session());
 
+
+//Passport Session
+app.use(session({
+  secret: "bliss",
+  resave: true,
+  saveUninitialized: true,
+  store: new MongoStore({
+    mongooseConnection:mongoose.connection,
+    ttl: 30 * 24 * 60 * 60 //30 días
+  }),
+  //maxAge: Date.now() + (30 * 86400 * 1000)
+  
+ }));
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
@@ -52,6 +72,12 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 const index = require('./routes/index');
+/* const dog = require('./routes/dog');
+const shelter = require('./routes/shelter');
+const user = require('./routes/user');
+app.use('/', user);
+app.use('/', shelter);
+app.use('/', dog); */
 app.use('/', index);
 
 

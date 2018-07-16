@@ -4,16 +4,31 @@ const passportLocalMongoose = require('passport-local-mongoose');
 
 
 const userSchema = new Schema({
-    username: String,
-    email: String,
+    name:{
+        type:String,
+        required:true
+    },
+    lastName:{
+        type:String,
+        required:true
+    },
+    username:{
+        type:String,
+        required:true
+    },
+  
+    email: {
+        type:String,
+        required:true
+    },
     photoURL: {
         type: String,
         default: "https://image.flaticon.com/icons/png/512/10/10581.png"
     },
     active:{
         type: Boolean,
-        enum:['Inactivo','Active'],
-        default: 'Inactivo'
+        // enum:['Inactivo','Active'],
+        default: false
     }
 },{
     timestamps:{

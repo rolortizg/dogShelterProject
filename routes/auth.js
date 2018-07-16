@@ -17,7 +17,10 @@ function isAuthenticated(req,res,next){
   return next();
 }
 
-
+function isActive(req,res,next){
+  if(req.user.active === true)  return next();
+  return res.send("Please activate your account in your email")
+}
 
 function isLoggedIn(req,res,next){
     if(req.isAuthenticated()){
@@ -33,7 +36,7 @@ router.get('/activation',(req,res,next)=>{
   User.findByIdAndUpdate(req.query.user, {active:true}, {new:true})
   .then(user=>{
     console.log(user);
-      res.send('Activado, gracias ' + user.username);
+      res.send('Activado, gracias ' + user.username + "<a href='/login'> Log in</a>");
   })
   .catch(e=>next(e))
 })
@@ -72,8 +75,8 @@ router.post('/signup',uploadCloud.single('photo'),(req,res,next)=>{
 router.get('/login',isAuthenticated,(req,res)=>{
     res.render("auth/login")
 })
-router.post('/login', passport.authenticate('local'), (req,res,next)=>{
-  if(req.body.next) res.redirect(req.body.next);
+router.post('/login', passport.authenticate('local'),isActive, (req,res,next)=>{
+  // if(req.body.next) res.redirect(req.body.next);
   //  req.app.locals.loggedUser = req.user;
   res.redirect('/profile')
 });
@@ -83,8 +86,5 @@ router.get('/logout', (req,res,next)=>{
   res.redirect('/')
 });
 
-router.get("/profile", (req,res)=>{
-    res.render('users/profile', req.user)
-})
 
 module.exports = router;

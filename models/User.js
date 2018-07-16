@@ -29,7 +29,12 @@ const userSchema = new Schema({
         type: Boolean,
         // enum:['Inactivo','Active'],
         default: false
-    }
+    },
+    // role:{
+    //     type:String,
+    //     enum:['User','Houser','Admin'],
+    //     default:"Dogger"
+    // }
 },{
     timestamps:{
         createdAt: 'created_at',

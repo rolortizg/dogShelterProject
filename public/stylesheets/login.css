@@ -1,0 +1,51 @@
+body {
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+.dropdown {
+  margin-left:900px;
+}
+.navbar {
+  margin-top:-50px;
+  background-color:  papayawhip;
+  border-bottom:3px solid black;
+  height:50px;
+  width:100vw;
+}
+.cover {
+  height:100vh;
+  width:100vw;
+  background-image: url('../images/DPC-autumn-leaves.jpg');
+  background-size:cover;
+  
+
+}
+
+.login-box {
+  border:5px solid white;
+  width:40vw;
+  height:50vh;
+  background-color:papayawhip;
+  text-align:center;
+  position:absolute;
+  top:30%;
+  left:55%;
+}
+
+#email {
+  width:30vw;
+  margin-top:5%;
+}
+
+#password {
+  width:25vw;
+  margin-top:5%;
+  margin-right:5%;
+}
+
+#submit {
+  margin-top:5%;
+  margin-bottom:5%;
+}

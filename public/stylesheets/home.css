@@ -12,6 +12,7 @@ body {
   border-bottom:3px solid black;
   width: 100vw;
   height:50px;
+  margin-top:-50px;
 }
 
 .color {
@@ -60,7 +61,7 @@ body {
 .divider {
   width:100vw;
   margin:0;
-  height: 600px;
+  height: 90vh;
   background-color:papayawhip;
   display:flex;
   /* justify-content:center;
@@ -68,12 +69,19 @@ body {
   align-items:center; */
  
 }
+/* .container {
+display:flex;
+justify-content: center;
+} */
+
 .col {
   border:4px solid black;
   margin-top:50px;
-  height:500px;
+  height:70vh;
   border-radius:5%;
   align-items:center;
+  display:flex;
+  flex-direction: column;
   
 }
 .col2 {
@@ -93,6 +101,11 @@ body {
   font-size:2em;
 }
 
-.container img{
-    width:20%;
+.img1 {
+    width:48%;
+    margin-top:19px;
+}
+.img2 {
+    width:22%;
+    margin-top:15px;
 }

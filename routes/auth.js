@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/User');
 const passport = require('passport');
 const sendActivationLink= require('../helpers/mailer').sendActivationLink;
+const passportFacebook = require('../helpers/facebook');
 
 //multer config
 const multer = require('multer');
@@ -29,6 +30,15 @@ function isLoggedIn(req,res,next){
       return res.redirect("/login?next=/activation")
     }
 }
+
+router.get('/facebook', passportFacebook.authenticate('facebook'));
+
+router.get('/facebook/callback',
+  passportFacebook.authenticate('facebook', { failureRedirect: '/' }),
+  function(req, res) {
+    res.redirect('/profile');
+});
+
 
 router.get('/activation',(req,res,next)=>{
   

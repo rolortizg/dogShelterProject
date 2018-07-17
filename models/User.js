@@ -30,6 +30,7 @@ const userSchema = new Schema({
         // enum:['Inactivo','Active'],
         default: false
     },
+
     // role:{
     //     type:String,
     //     enum:['User','Houser','Admin'],

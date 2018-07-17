@@ -1,0 +1,58 @@
+<h1>Agrega un Refugio</h1>
+<form action="/registerShelter" method="POST" enctype="multipart/form-data">
+
+    <p>
+        La foto de tu refugio:
+        <input type="file" name="photo">
+    </p>
+
+    <p>
+        Nombre del Refugio:
+        <input type="text" name="name">
+    </p>
+
+    <p>
+        Email de contacto
+        <input type="email" name="email" placeholder="perritos@perritos.com" required>
+    </p>
+
+    <p>
+        Direccion:
+        <input type="text" name="location[address]" id="address">
+    </p>
+    <p>
+        <input type="text" name="location[coordinates][1]" id="lat" placeholder="NO LLENAR ESTOS CAMPOS">
+    </p>
+
+    <p>
+        <input type="text" name="location[coordinates][0]" id="lng" placeholder="NO LLENAR ESTOS CAMPOS">
+    </p>
+
+    <input type="submit" value="Crear">
+
+</form>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeU5wvSFhoHGD1YkXYnGh6DjskJp-LkRI&libraries=places"></script>
+
+<script>
+
+let address = document.getElementById('address') 
+let lat = document.getElementById('lat')
+let lng = document.getElementById('lng')
+
+
+function autoComplete(input, inputLat, inputLng){
+  const dropdown = new google.maps.places.Autocomplete(input)
+
+  dropdown.addListener('place_changed', ()=>{
+    let place = dropdown.getPlace()
+    console.log(place)
+    lat.value = place.geometry.location.lat()
+    lng.value = place.geometry.location.lng()
+  })
+}
+
+autoComplete(address, lat, lng)
+
+</script>

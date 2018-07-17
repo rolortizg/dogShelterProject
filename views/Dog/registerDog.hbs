@@ -1,0 +1,40 @@
+<h1>Registra tu perro</h1>
+<form action="/registerDog" method="POST" enctype="multipart/form-data">
+<p>
+    Sube la foto del perro:
+    <input type="file" name="foto" required>
+</p>
+
+<p>
+    Introduce la raza, si es criollo deja el campo en blanco:
+    <input type="text" name="raza" value="criollo">
+</p>
+
+<p>
+    La talla del perro:
+    <select name="talla">
+    <option value="grande">Grande</option>
+    <option value="mediana">Mediana</option>
+    <option value="chica">Chica</option>
+  </select>
+
+</p>
+
+<p>
+    Señas Particulares:
+    <input type="text" name="señasParticulares" required>
+</p>
+
+<p>
+    Color:
+    <input type="text" nombre="color" required>
+</p>
+
+<p>
+    Si no tiene nombre deje en blanco<br>
+    Nombre: 
+    <input type="text" name="nombre" value="ninguno">
+</p>
+
+<input type="submit">
+</form>

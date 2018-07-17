@@ -30,7 +30,7 @@ const app = express();
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Express View engine setup
@@ -72,12 +72,12 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 const index = require('./routes/index');
-/* const dog = require('./routes/dog');
+const dog = require('./routes/dog');
 const shelter = require('./routes/shelter');
-const user = require('./routes/user');
-app.use('/', user);
+// const user = require('./routes/user');
+// app.use('/', user);
 app.use('/', shelter);
-app.use('/', dog); */
+app.use('/', dog); 
 app.use('/', index);
 
 

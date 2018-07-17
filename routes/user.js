@@ -23,8 +23,13 @@ function isAuthenticated(req,res,next){
 }
 
 function isLoggedIn(req,res,next){
-  if(req.isAuthenticated()) return next();
-  return res.redirect('/login?next=/profile')
+  if(req.isAuthenticated()){
+    return next();
+  } else {
+    console.log('aqui ta')
+    return res.redirect('/login?next=/profile')
+  }
+  
 }
 
 router.get("/profile",isLoggedIn,isActive,(req,res)=>{

@@ -76,12 +76,13 @@ justify-content: center;
 
 .col {
   border:4px solid black;
-  margin-top:50px;
+  margin-top:70px;
   height:70vh;
   border-radius:5%;
   align-items:center;
   display:flex;
   flex-direction: column;
+  box-shadow: 5px 10px #888888d5;
   
 }
 .col2 {

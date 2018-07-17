@@ -57,19 +57,20 @@
                 </h5>
                 <h5>
                   Password:
-                  <input required id="password"  type="password" name="password" value="{{email}}">
+                  <input required id="password"  type="password" name="password" value="{{password}}">
                 </h5>
-                
+                <button id="submit" type="submit" class="btn btn-warning">Sign in</button>
                 
             {{!-- <fb:login-button 
               scope="public_profile,email"
               onlogin="checkLoginState();">
             </fb:login-button> --}}
-
+            
             </form>
-                <form action="/signup" method="GET">
+                  {{!-- <form action="/profile" method="GET"></form>
                   <button id="submit" type="submit" class="btn btn-warning">Sign in</button>
-                </form>
+                </form> --}}
+              <a href="/profile">Sign in</a>
             <a href="/facebook"> Sign in with facebook</a>
         </div>  
       </section>  

@@ -36,4 +36,13 @@ router.get('/shelterList', (req,res)=>{
   .catch(e=>console.log(e));
 })
 
+
+router.get('/shelterList/:id', (req,res,next)=>{
+  Shelter.findById(req.params.id)
+  .then(shelter=>{
+    console.log(shelter)
+    res.render('Shelter/sheltairDetail', shelter)
+  })
+  .catch(e=>console.log(e))
+})
 module.exports = router;

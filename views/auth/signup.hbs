@@ -1,0 +1,43 @@
+<h1>Sign up para buscar un perro para ti!</h1>
+<p style="color:red">
+    {{#if err}}{{err}}{{/if}}
+</p>
+
+<form validated action="/signup" method="POST" enctype="multipart/form-data">
+
+    <h5>
+      Name
+      <input required type="text" name="name">
+    </h5> 
+    <h5>
+      Last name:
+      <input required type="text" name="lastName">
+    </h5> 
+    <h5>Profile picture:
+      <input type="file" name="photo">
+        <br />
+    </h5> 
+    <h5>
+      Username:
+      <input required type="text" name="username" value="{{username}}">
+    </h5> 
+    <h5>
+      Email:
+      <input required type="email" name="email" value="{{email}}">
+    </h5> 
+    <h5>
+      Password:
+      <input required type="password" name="password" value="{{password}}">
+    </h5> 
+    <h5>
+     Repite tu password:
+      <input required type="password" name="password2" value="{{password2}}">
+    </h5> 
+   
+
+    <input type="submit" value="I'm in">
+
+
+
+</form>
+

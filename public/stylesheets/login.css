@@ -49,3 +49,10 @@ body {
   margin-top:5%;
   margin-bottom:5%;
 }
+
+#fb {
+  width:35%;
+}
+#fb:hover {
+  cursor: pointer;
+}

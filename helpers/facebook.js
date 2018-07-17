@@ -1,6 +1,7 @@
 const passport         = require('passport');
 const FacebookStrategy = require('passport-facebook');
 const User             = require('../models/User');
+// const Facebook = require('../models/Facebook')
 
 passport.use(new FacebookStrategy({
   clientID: "243309239830410",
@@ -10,6 +11,8 @@ passport.use(new FacebookStrategy({
 function(accessToken, refreshToken, profile, cb) {
   console.log(profile);
   User.create({ name:profile.displayName,lastName:profile.displayName, username: profile.displayName, password:"123",email:"facebook@user.com",active:true }, function (err, user) {
+   
+    
     if (err) { return cb(err); }
     cb(null, user);
   });

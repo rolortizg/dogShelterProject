@@ -3,12 +3,17 @@ const Schema = mongoose.Schema;
 
 const shelterSchema = new Schema({
 	name: String,
-	photo: String,
+	photo: {
+		type: String,
+		default: "http://cdn.shopify.com/s/files/1/0601/4169/files/Shelter_top_large.jpg?4600740965590412204"
+	},
 	email: String,
+
 	dogs:[{
 		type: Schema.Types.ObjectId,
 		ref: "Dog"
 	}],
+	
 	location:{
 			type:{
 					type:String,

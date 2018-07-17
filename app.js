@@ -39,7 +39,7 @@ app.use(passport.session());
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/dogshelter', {useMongoClient: true})
+  .connect( process.env.DB , {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {

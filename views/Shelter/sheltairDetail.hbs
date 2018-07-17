@@ -1,34 +1,62 @@
-<img src="{{photo}}" alt="" class="shelter">
-<h1>Nombre del refugio: {{name}}</h1>
-<p>{{email}}</p>
-<p>{{location.address}}</p>
+<header>
+	<form action="/searchDog" method="POST">
+	<input placeholder="¿Que raza prefieres?" name="raza" type="text">
+	<input value="buscar" type="submit">
+	</form>
+</header>
 
+<section>
+	<img src="{{photo}}" alt="" class="shelter">
+	<h1>Nombre del refugio: {{name}}</h1>
+	<p>{{email}}</p>
+	<p>{{location.address}}</p>
+</section>
 
+{{!-- El shelter detail sea el perfil despues de rellenar el formulario de crear --}}
+{{!-- Introducir los perros eso se hace con populate --}}
+{{!-- Imagen default en los refugios. --}}
 
 <div id="map"></div>
 
-<a href="/shelterList">Regresar</a>
+<footer>
+	{{#if user}}
+	
+		<a href="/registerDog">Registrar tus Peludos!!</a>
 
+			{{else}}
+
+		<a href="/">Ir a Inicio</a>
+
+	{{/if}}
+
+</footer>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeU5wvSFhoHGD1YkXYnGh6DjskJp-LkRI"></script>
 
 <script>
-    let center = {
-        lat:{{location.coordinates.[1]}},
-        lng:{{location.coordinates.[0]}}
-    };
-    let title = '{{name}}'
-    const map = new google.maps.Map(
-        document.getElementById('map'),
-        {
-            center,
-            zoom:15
-        }
-    )
-    const marker = new google.maps.Marker({
-        map,
-        position:center,
-        title,
-        animation: google.maps.Animation.BOUNCE
-    })
+let center = {
+	lat:{{location.coordinates.[1]}},
+	lng:{{location.coordinates.[0]}}
+		};
+	let title = '{{name}}'
+	const map = new google.maps.Map(
+	document.getElementById('map'),
+{
+	center,
+	zoom:15
+}
+)
+const image = {
+	url: "https://png.icons8.com/metro/1600/dog.png",
+	scaledSize: new google.maps.Size(20, 20)  
+};
+
+	const marker = new google.maps.Marker({
+	map,
+	position:center,
+	icon: image,
+	title,
+	animation: google.maps.Animation.BOUNCE
+	})
+
 </script>

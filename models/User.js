@@ -16,10 +16,6 @@ const userSchema = new Schema({
         type:String,
         required:true
     },
-    Shelter:[{
-        type: Schema.Types.ObjectId,
-        ref: "Shelter"
-    }],
     email: {
         type:String,
         required:true

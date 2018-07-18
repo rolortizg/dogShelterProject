@@ -11,9 +11,14 @@ const shelterSchema = new Schema({
 
 	dogs:[{
 		type: Schema.Types.ObjectId,
-		ref: "Dog"
+		ref: "Dog",
+		childPath: "Shelter"
+		
 	}],
-	
+	user:{
+		type: Schema.Types.ObjectId,
+		ref: "User"
+	},
 	location:{
 			type:{
 					type:String,

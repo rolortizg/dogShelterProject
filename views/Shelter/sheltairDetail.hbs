@@ -1,31 +1,28 @@
-<header>
-	<form action="/searchDog" method="POST">
-	<input placeholder="¿Que raza prefieres?" name="raza" type="text">
-	<input value="buscar" type="submit">
-	</form>
-</header>
-
 <section>
-	<img src="{{photo}}" alt="" class="shelter">
-	<h1>Nombre del refugio: {{name}}</h1>
-	<p>{{email}}</p>
-	<p>{{location.address}}</p>
+	<img src="{{ob.shelter.photo}}" alt="" class="shelter">
+	<h1>Nombre del refugio: {{ob.shelter.name}}</h1>
+	<p>{{ob.shelter.email}}</p>
+	<p>{{ob.shelter.location.address}}</p>
 </section>
 
 {{!-- El shelter detail sea el perfil despues de rellenar el formulario de crear --}}
 {{!-- Introducir los perros eso se hace con populate --}}
-{{!-- Imagen default en los refugios. --}}
+{{!-- Que el shelter solo sea del usuario y sus dogs--}}
 
 <div id="map"></div>
 
 <footer>
-	{{#if user}}
-	
+
+	{{#if ob.[0]}}
+
 		<a href="/registerDog">Registrar tus Peludos!!</a>
+		<a href="/eliminarSheltair">Eliminar Sheltair</a>
+		<a href="/myShelters">Ir a tus Sheltairs</a>
 
 			{{else}}
 
 		<a href="/">Ir a Inicio</a>
+		<a href="/listDogs"></a>
 
 	{{/if}}
 
@@ -35,8 +32,8 @@
 
 <script>
 let center = {
-	lat:{{location.coordinates.[1]}},
-	lng:{{location.coordinates.[0]}}
+	lat:{{ob.shelter.location.coordinates.[1]}},
+	lng:{{ob.shelter.location.coordinates.[0]}}
 		};
 	let title = '{{name}}'
 	const map = new google.maps.Map(

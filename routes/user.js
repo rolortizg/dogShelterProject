@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require('../models/User');
 const passport = require('passport');
+const Shelter = require('../models/Shelter')
 
 //multer config
 const multer = require('multer');
@@ -35,5 +36,18 @@ function isLoggedIn(req,res,next){
 router.get("/profile",isLoggedIn,isActive,(req,res)=>{
     res.render('users/profile', req.user)
 })
+
+//Mostrar mis Shelters
+
+router.get('/myShelters', (req,res)=>{
+  Shelter.find({user:req.user._id})
+  .then(shelter=>{
+    console.log(shelter)
+    res.render('users/userShelters', {shelter})
+  })
+  .catch(e=>console.log(e))
+})
+
+
 
 module.exports = router;

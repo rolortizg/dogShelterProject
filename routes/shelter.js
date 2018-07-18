@@ -11,6 +11,11 @@ function isLoggedIn(req,res,next){
   return res.redirect('/login?next=/profile')
 }
 
+function isTheOwner(req,res,next){
+  if(req.user) return next()
+  return res.redirect('/shelterList/:id')
+}
+
 //Registrar el shelter
 
 router.get('/registerShelter',isLoggedIn,(req,res)=>{
@@ -23,13 +28,15 @@ router.get('/registerShelter',isLoggedIn,(req,res)=>{
 router.post('/registerShelter', isLoggedIn , uploadCloud.single('photo'), (req,res)=>{
   req.body.photo = req.file.url
   req.body.user = req.user._id
-
-  Shelter.create(req.body)
-  .then(refugio=>{
-    console.log(refugio)
-    res.redirect('/profile')
-  })
-  .catch(e=>console.log(e))
+    
+    Shelter.create(req.body)
+    .then(user=>{
+        return Shelter.findByIdAndUpdate(req.user._id, {$push:{user: user._id}});
+    })
+    .then(shelter=>{
+        res.redirect('/myShelters')
+    })
+    .catch(e=>next(e))
 })
 
 //Mostrar los refugios disponibles
@@ -37,7 +44,7 @@ router.post('/registerShelter', isLoggedIn , uploadCloud.single('photo'), (req,r
 router.get('/shelterList', (req,res)=>{
   Shelter.find()
   .then(shelt=>{
-    console.log(shelt)
+    //console.log(shelt)
     res.render('Shelter/shelterList', shelt)
   })
   .catch(e=>console.log(e));
@@ -45,10 +52,19 @@ router.get('/shelterList', (req,res)=>{
 
 /* Mandar un mensaje al refugio del user al refugio */
 
-router.get('/shelterList/:id', (req,res,next)=>{
+router.get('/shelterList/:id',(req,res,next)=>{
+let ob = []
+  console.log(req.user)
+  if(req.user) {
+    ob = [{usuarioLogeado: req.user._id}]
+  } else {
+    ob = []
+  }
   Shelter.findById(req.params.id)
   .then(shelter=>{
-    res.render('Shelter/sheltairDetail', shelter)
+    ob.shelter = shelter;
+    console.log(ob)
+    res.render('Shelter/sheltairDetail', {ob})
   })
   .catch(e=>console.log(e))
 })

@@ -19,6 +19,11 @@ const dogSchema = new Schema({
 
     color: String,
 
+    Shelter:{
+        type: Schema.Types.ObjectId,
+        ref: "Shelter"
+    },
+
     señasParticulares:{
         type: String,
         default: "perro"

@@ -21,17 +21,18 @@ router.get('/registerDog', isLoggedIn, (req, res, next) => {
 router.post('/registerDog', isLoggedIn ,uploadCloud.single('foto') ,(req,res,next)=>{
     req.body.photoURL = req.file.url;
     req.body.shelter = req.shelter._id;
+    console.log(req.shelter)
 
     Dog.create(req.body)
-    .then(dog=>{
-        return Shelter.findByIdAndUpdate(req.shelter._id, {$push:{dogs: dog._id}})
-    }).then(shelter=>{
+    .then(shelter=>{
+        return Dog.findByIdAndUpdate(req.shelter._id, {$push:{shelter: shelter._id}})
+    }).then(dog=>{
         res.redirect('/listDog')
     })
     .catch(e=>res.send(e))
 })
 
-router.get('/listDog', isLoggedIn, (req,res)=>{
+router.get('/dogList', isLoggedIn, (req,res)=>{
     Dog.find()
     .then(dog=>{
         res.render('Dog/dogList', dog)

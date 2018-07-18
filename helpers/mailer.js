@@ -13,10 +13,10 @@ const transporter = nodemailer.createTransport(
 
 exports.sendActivationLink = (user) => {
     const options = {
-        from: '"Perritos 👻" <roloortizgarcia@gmail.com>', // sender address
+        from: '"Sheltair 👻" <roloortizgarcia@gmail.com>', // sender address
         to: user.email, // list of receivers
-        subject: 'Bienvenido ✔', // Subject line
-        html: "<h2>Activa tu cuenta: <a href='http://localhost:3000/activation/?user=" +user._id+"> Click aqui </a></h2>", // plain text body
+        subject: 'Bienvenido' + user.name, // Subject line
+        html: "<h2>Activa tu cuenta:</h2> <a href='http://localhost:3000/activation/?user=" +user._id + "'  > Click aqui </a>", // plain text body
         //html: '<b>Hello world?</b>' // html body
     };
     transporter.sendMail(options, (err,info)=>{

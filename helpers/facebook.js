@@ -1,6 +1,8 @@
 const passport         = require('passport');
 const FacebookStrategy = require('passport-facebook');
 const User             = require('../models/User');
+const findOrCreate = require('mongoose-findorcreate');
+
 
 passport.use(new FacebookStrategy({
   clientID: "243309239830410",
@@ -9,10 +11,20 @@ passport.use(new FacebookStrategy({
 },
 function(accessToken, refreshToken, profile, cb) {
   console.log(profile);
-  User.create({ name:profile.displayName,lastName:profile.displayName, username: profile.displayName, password:"123",email:"facebook@user.com",active:true }, function (err, user) {
-    if (err) { return cb(err); }
-    cb(null, user);
-  });
+  User.findOne({email:profile.displayName + "@user.com"})
+  .then(r=>{
+    console.log(r)
+    if(r === null) {
+      User.create({ name:profile.displayName,lastName:profile.displayName, username: profile.displayName, password:"123",email:profile.displayName + "@user.com",active:true }, function (err, user) {
+        if (err) { return cb(err); }
+        cb(null, user);
+      });
+    } else {
+      cb(null, r);
+    }
+  })
+  .catch(e=>console.log(e))
+  
 }
 ));
 

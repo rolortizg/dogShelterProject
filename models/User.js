@@ -22,7 +22,7 @@ const userSchema = new Schema({
     },
     photoURL: {
         type: String,
-        default: "https://image.flaticon.com/icons/png/512/10/10581.png"
+        default: "http://www.infraco.co.za/corporate/Picture/missing-profile-photo.png"
     },
     active:{
         type: Boolean,

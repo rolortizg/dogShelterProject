@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require('../models/User');
 const passport = require('passport');
 const sendActivationLink= require('../helpers/mailer').sendActivationLink;
-const passportFacebook = require('../helpers/facebook');
+
 
 //multer config
 const multer = require('multer');
@@ -31,13 +31,6 @@ function isLoggedIn(req,res,next){
     }
 }
 
-router.get('/facebook', passportFacebook.authenticate('facebook'));
-
-router.get('/facebook/callback',
-  passportFacebook.authenticate('facebook', { failureRedirect: '/' }),
-  function(req, res) {
-    res.redirect('/profile');
-});
 
 
 router.get('/activation',(req,res,next)=>{
@@ -56,8 +49,8 @@ router.get('/signup',(req,res)=>{
     res.render('auth/signup')
 });
 
-router.post('/signup',uploadCloud.single('photo'),(req,res,next)=>{
-  req.body.photoURL = req.file.url;
+router.post('/signup',(req,res,next)=>{
+  // req.body.photoURL = req.file.url;
   if(req.body.password !== req.body.password2){
     req.body.err = "Tu password no coincide"
     res.render('auth/signup', req.body)
@@ -87,7 +80,7 @@ router.get('/login',isAuthenticated,(req,res)=>{
 })
 router.post('/login', passport.authenticate('local'),isActive, (req,res,next)=>{
   // if(req.body.next) res.redirect(req.body.next);
-  //  req.app.locals.loggedUser = req.user;
+   req.app.locals.loggedUser = req.user;
   res.redirect('/profile')
 });
 

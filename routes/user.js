@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require('../models/User');
 const passport = require('passport');
-
+const passportFacebook = require('../helpers/facebook');
 
 //multer config
 const multer = require('multer');
@@ -37,13 +37,23 @@ router.get("/profile",isLoggedIn,isActive,(req,res)=>{
     res.render('users/profile', req.user)
 })
 
-// router.post('/profile', (req, res, next)=>{
-//   // req.user.photoURL = req.file.url;
-//   User.findOneAndUpdate(req.user, {new:true})
-//   .then(user=>{
-//       res.redirect('/profile')
-//   })
-//   .catch(e=>next(e))
-// });
+router.get('/facebook', passportFacebook.authenticate('facebook'));
+
+router.get('/facebook/callback',
+  passportFacebook.authenticate('facebook', { failureRedirect: '/' }),
+  function(req, res) {
+    res.redirect('/profile');
+});
+
+
+router.post('/profile', isLoggedIn, uploadCloud.single('photo'), (req, res, next)=>{
+  req.app.locals.loggedUser = req.user;
+  req.user.photoURL = req.file.url;
+  User.findByIdAndUpdate(req.user._id, req.user, {new:true})
+  .then(user=>{
+      res.redirect('/profile')
+  })
+  .catch(e=>next(e))
+});
 
 module.exports = router;

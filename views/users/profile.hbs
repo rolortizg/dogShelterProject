@@ -1,3 +1,22 @@
 <h1>Welcome {{name}}</h1>
-<img src="{{photoURL}}">
+<img id="photo" src="{{photoURL}}">
 <a href="/registerShelter"> Become a Sheltair</a>
+
+
+<form id="form" action="/profile" method="post" enctype="multipart/form-data">
+<input onchange="submitForm()" name="photo" id="file" style="display:none" type="file">
+</form>
+
+
+{{!-- <form method="post" id="doFollow" action="/follow/{{_id}}">
+</form> --}}
+
+<script>
+    document.getElementById('photo').addEventListener('click', function(){
+        document.getElementById('file').click();
+    });
+
+    function submitForm(e){
+       document.getElementById('form').submit();
+    }
+</script>

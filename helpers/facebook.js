@@ -1,7 +1,7 @@
 const passport         = require('passport');
 const FacebookStrategy = require('passport-facebook');
 const User             = require('../models/User');
-// const Facebook = require('../models/Facebook')
+var findOrCreate = require('mongoose-findorcreate');
 
 passport.use(new FacebookStrategy({
   clientID: "243309239830410",
@@ -10,14 +10,18 @@ passport.use(new FacebookStrategy({
 },
 function(accessToken, refreshToken, profile, cb) {
   console.log(profile);
+  User.findById({id:profile.id}),function(err,user) {
+    if (profile.id){return cb(profile.id)}; 
+    cb(null, user);
+  }
+
   User.create({ name:profile.displayName,lastName:profile.displayName, username: profile.displayName, password:"123",email:"facebook@user.com",active:true }, function (err, user) {
-   
-    
     if (err) { return cb(err); }
     cb(null, user);
   });
 }
 ));
+
 
 passport.serializeUser(function(user,cb){
   cb(null, user)

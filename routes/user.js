@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/User');
 const passport = require('passport');
 
+
 //multer config
 const multer = require('multer');
 const upload = multer({dest: './public/assets'});
@@ -35,5 +36,14 @@ function isLoggedIn(req,res,next){
 router.get("/profile",isLoggedIn,isActive,(req,res)=>{
     res.render('users/profile', req.user)
 })
+
+// router.post('/profile', (req, res, next)=>{
+//   // req.user.photoURL = req.file.url;
+//   User.findOneAndUpdate(req.user, {new:true})
+//   .then(user=>{
+//       res.redirect('/profile')
+//   })
+//   .catch(e=>next(e))
+// });
 
 module.exports = router;

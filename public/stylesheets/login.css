@@ -1,6 +1,7 @@
 body {
   margin: 0 auto;
   font-family: 'Roboto', sans-serif;
+  padding-left:0;
 
 }
 
@@ -19,8 +20,15 @@ body {
   width:100vw;
   background-image: url('../images/DPC-autumn-leaves.jpg');
   background-size:cover;
-  
 
+}
+.navbar img {
+  width:8%;
+  border-radius:5%;
+}
+
+.navbar img:hover {
+  cursor: pointer;
 }
 
 .login-box {

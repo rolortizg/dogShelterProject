@@ -1,0 +1,60 @@
+body {
+  margin: 0 auto;
+  padding-left:0;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+.dropdown {
+  margin-left:900px;
+}
+.navbar {
+  margin-top:-50px;
+  background-color: papayawhip;
+  border-bottom:3px solid black;
+  height:50px;
+  width:100vw;
+}
+.navbar img {
+  width:8%;
+  border-radius:5%;
+}
+
+.navbar img:hover {
+  cursor: pointer;
+}
+
+#cover {
+  position:relative;
+  width:100vw;
+  background-image: url("https://images5.alphacoders.com/338/338108.jpg");
+  background-size:cover;
+  background-position:0% 50%;
+  height:300px;
+  background-color:red;
+ 
+}
+#photo {
+position:absolute;
+border: 3px solid skyblue;
+width:300px;
+top:250px;
+left:15%;
+
+}
+
+.header {
+  
+}
+
+.bio {
+
+}
+
+.bio-area {
+  margin-top:100px;
+  width:24%;
+  border:2px solid black;
+  margin-left:16%;
+  margin-top:7%;
+}

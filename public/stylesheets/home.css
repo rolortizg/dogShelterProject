@@ -1,11 +1,13 @@
 body {
   margin: 0 auto;
   font-family: 'Roboto', sans-serif;
-
+  padding-left:0;
 }
+
 
 .dropdown {
   margin-left:750px;
+ 
 }
 .navbar {
   background-color:  #002366;
@@ -13,6 +15,19 @@ body {
   width: 100vw;
   height:50px;
   margin-top:-50px;
+}
+
+.navbar img {
+  width:8%;
+  border-radius:5%;
+}
+
+.navbar img:hover {
+  cursor: pointer;
+}
+
+.hova:hover {
+  color:blue;
 }
 
 .color {
@@ -142,7 +157,7 @@ padding-bottom:20px;
 }
 
 .last-section {
-  height:400px;
+  height:700px;
   width:100vw;
   background-color:darkblue;
 }

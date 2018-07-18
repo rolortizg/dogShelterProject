@@ -1,16 +1,79 @@
-<h1>Welcome {{name}}</h1>
-<img id="photo" src="{{photoURL}}">
-<a href="/registerShelter"> Become a Sheltair</a>
-
-
-<form id="form" action="/profile" method="POST" enctype="multipart/form-data">
-<input onchange="submitForm()" name="photo" id="file" style="display:none" type="file">
-</form>
-
 
 {{!-- <form method="post" id="doFollow" action="/follow/{{_id}}">
 </form> --}}
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="../stylesheets/profile.css" rel="stylesheet">
+  <title>Sheltair</title>
+</head>
+<body>
+     <nav class="navbar navbar-expand-lg navbar-light">
+        <img src="../images/Small-logo.png" id="small-logo">
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+        
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="dropdown" style="color:black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/logout">Log out</a>
+                </div>
+            </li>
+           
+          </ul>
+        </div>
+      </nav>
+      <section id="cover">
+          <div>
+              
+          </div>      
+    </section>     
+       <section>
+            <img id="photo" src="{{photoURL}}">
+               <div class="bio-area">
+                    <div class="header">
+                        <h1>Welcome {{name}}</h1>
+                    </div>
+                    <div class="bio">
+                        <h2>{{name}}'s Profile</h2>
+                    </div>
+                </div>
+            <a href="/registerShelter"> Become a Sheltair</a>
+
+
+            <form id="form" action="/profile" method="POST" enctype="multipart/form-data">
+                <input onchange="submitForm()" name="photo" id="file" style="display:none" type="file">
+            </form>
+       </section>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+{{!-- <script>
+    var button = document.getElementById('fb');
+    button.addEventListener('click', function(){
+        var click = window.location.href="http://localhost:3000/facebook";
+        click.trigger('click');
+  })
+</script> --}}
 <script>
     document.getElementById('photo').addEventListener('click', function(){
         document.getElementById('file').click();
@@ -19,4 +82,15 @@
     function submitForm(e){
        document.getElementById('form').submit();
     }
+</script>
+<script>
+  var home = document.getElementById('small-logo');
+    home.addEventListener('click', function(){
+        var plis = window.location.href="http://localhost:3000/";
+        plis.trigger('click');
+  })
+</script>
+<script>
+    var account = document.getElementById('dropdown');
+        account.innerText= "{{name}}"
 </script>

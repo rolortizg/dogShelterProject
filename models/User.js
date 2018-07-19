@@ -29,18 +29,18 @@ const userSchema = new Schema({
         // enum:['Inactivo','Active'],
         default: false
     },
-    // following: [
-    //     {
-    //         type: Schema.Types.ObjectId,
-    //         ref: 'User'
-    //     }
-    // ],
-    // posts:[
-    //     {
-    //         type: Schema.Types.ObjectId,
-    //         ref: 'Post'
-    //     }
-    // ],
+    following: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
+    posts:[
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Dog'
+        }
+    ],
 
    /*  shelters:[{
         type: Schema.Types.ObjectId,

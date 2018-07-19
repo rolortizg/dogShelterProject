@@ -90,11 +90,13 @@ const dog = require('./routes/dog');
 const shelter = require('./routes/shelter');
 const auth = require('./routes/auth')
 const user = require('./routes/user');
+const post = require('./routes/post')
 app.use('/', index)
 app.use('/', shelter);
 app.use('/', dog); 
 app.use('/', user);
 app.use('/', auth);
+app.use('/', post)
 
 
 

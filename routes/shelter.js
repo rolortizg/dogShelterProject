@@ -49,13 +49,17 @@ router.post('/registerShelter', isLoggedIn , uploadCloud.single('photo'), (req,r
     .catch(e=>next(e))
 })
 
+
 //Mostrar los refugios disponibles
 
 router.get('/shelterList', (req,res)=>{
+  let newob = {}
+  newob.user = req.user
   Shelter.find()
   .then(shelt=>{
-    //console.log(shelt)
-    res.render('Shelter/shelterList', shelt)
+    newob.shelt = shelt
+    console.log(newob)
+    res.render('Shelter/shelterList', newob)
   })
   .catch(e=>console.log(e));
 })

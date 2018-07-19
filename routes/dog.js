@@ -3,6 +3,7 @@ const router  = express.Router();
 const multer = require('multer');
 const Dog = require('../models/Dog')
 const Shelter = require('../models/Shelter')
+const app = express();
 
 
 const uploadCloud = require('../helpers/cloudinary');
@@ -13,26 +14,40 @@ function isLoggedIn(req,res,next){
     return res.redirect('/login?next=/profile')
   }
 
-/* Registrar perro*/
-router.get('/registerDog', isLoggedIn, (req, res, next) => {
-  res.render('Dog/registerDog');
+/* Registrar perrito*/
+router.get('/shelterList/:id/registerDog', isLoggedIn, (req, res, next) => {
+    Shelter.findById(req.params.id)
+        .then(shelter=>{
+            res.render('Dog/registerDog', shelter);
+        })
+  
 });
 
-router.post('/registerDog', isLoggedIn ,uploadCloud.single('foto') ,(req,res,next)=>{
+router.post('/shelterList/:id/registerDog', isLoggedIn ,uploadCloud.single('foto') ,(req,res,next)=>{
     req.body.photoURL = req.file.url;
-    req.body.shelter = req.shelter._id;
-    console.log(req.shelter)
+    //req.user = req.shelter._id; Esto no se usa, mejor se tiene que traer de la ruta anterior
+
+    req.body.shelter = req.params.id
 
     Dog.create(req.body)
-    .then(shelter=>{
-        return Dog.findByIdAndUpdate(req.shelter._id, {$push:{shelter: shelter._id}})
-    }).then(dog=>{
-        res.redirect('/listDog')
+    .then(dog =>{
+        console.log(dog)
+        return res.redirect('/shelterList/:id/shelterDogs')
     })
-    .catch(e=>res.send(e))
+    .catch(e=>console.log(e))
 })
 
-router.get('/dogList', isLoggedIn, (req,res)=>{
+/* router.get('/shelterList/:id/shelterDogs', isLoggedIn, (req,res)=>{
+    
+    Dog.find()
+    .then(dogs=>{
+        console.log(dogs)
+        res.render('Shelter/shelterDogs', {dogs})
+    })
+    .catch(e=>console.log(e))
+}) */
+
+router.get('/dogList', (req,res)=>{
     Dog.find()
     .then(dog=>{
         res.render('Dog/dogList', dog)

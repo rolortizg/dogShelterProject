@@ -1,5 +1,5 @@
 <h1>Registra tu perro</h1>
-<form action="/registerDog" method="POST" enctype="multipart/form-data">
+<form action="/shelterList/{{_id}}/registerDog" method="POST" enctype="multipart/form-data">
 <p>
     Sube la foto del perro:
     <input type="file" name="foto" required>
@@ -7,7 +7,7 @@
 
 <p>
     Introduce la raza, si es criollo deja el campo en blanco:
-    <input type="text" name="raza" value="criollo">
+    <input type="text" name="raza" placeholder="Criollo" required>
 </p>
 
 <p>
@@ -16,6 +16,7 @@
     <option value="grande">Grande</option>
     <option value="mediana">Mediana</option>
     <option value="chica">Chica</option>
+    <option value="mini">Mini</option>
   </select>
 
 </p>
@@ -27,13 +28,13 @@
 
 <p>
     Color:
-    <input type="text" nombre="color" required>
+    <input type="text" name="color" required>
 </p>
 
 <p>
     Si no tiene nombre deje en blanco<br>
     Nombre: 
-    <input type="text" name="nombre" value="ninguno" placeholder="ninguno">
+    <input type="text" name="nombre" placeholder="ninguno" required>
 </p>
 
 <input type="submit">

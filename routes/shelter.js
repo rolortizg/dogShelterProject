@@ -31,6 +31,7 @@ router.post('/registerShelter', isLoggedIn , uploadCloud.single('photo'), (req,r
     
     Shelter.create(req.body)
     .then(user=>{
+        
         return Shelter.findByIdAndUpdate(req.user._id, {$push:{user: user._id}});
     })
     .then(shelter=>{

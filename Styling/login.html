@@ -9,15 +9,12 @@
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link href="../stylesheets/login.css" rel="stylesheet">
+ <link rel="stylesheet" href="../stylesheets/login.css">
   <title>Sheltair</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="color navbar-brand" href="/" style="color:black;font-family:'Open Sans';text-shadow: 0 0 15px #fff;padding-right:30px;font-size:1.8em;">sheltair</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <img src="../images/Small-logo.png" id="small-logo">
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
@@ -28,7 +25,7 @@
               <a class="nav-link" style="color:black" href="/logout">Log out</a>
             </li> --}}
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" style="color:black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" style="color:white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Your account
               </a>
               <div class="dropdown-menu dropdown" aria-labelledby="navbarDropdown">
@@ -59,7 +56,7 @@
                   Password:
                   <input required id="password"  type="password" name="password" value="{{password}}">
                 </h5>
-                
+                <button id="submit" type="submit" class="btn btn-warning">Sign in</button>
                 
             {{!-- <fb:login-button 
               scope="public_profile,email"
@@ -70,10 +67,26 @@
                   {{!-- <form action="/profile" method="GET"></form>
                   <button id="submit" type="submit" class="btn btn-warning">Sign in</button>
                 </form> --}}
-              <a href="/profile">Sign in</a>
-            <a href="/facebook"> Sign in with facebook</a>
+            {{!-- <a href="/facebook"> Sign in with facebook</a> --}}
+            <img id="fb" src="https://comedydefensivedriving.com/images2011/fb-sign-in-button.png">
         </div>  
       </section>  
-
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
+
+<script>
+    var button = document.getElementById('fb');
+    button.addEventListener('click', function(){
+        var click = window.location.href="http://localhost:3000/facebook";
+        click.trigger('click');
+  })
+
+    var home = document.getElementById('small-logo');
+    home.addEventListener('click', function(){
+        var plis = window.location.href="http://localhost:3000/";
+        plis.trigger('click');
+  })
+</script>

@@ -1,6 +1,28 @@
+body {
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  padding-left: 0; }
+
 #map {
   background-color: black;
   width: 500px;
   height: 300px; }
+
+.dropdown {
+  margin-left: 1000px; }
+
+.navbar {
+  background-color: #282828;
+  /* box-shadow: 3px 3px 3px 3px #888888; */
+  width: 100vw;
+  height: 50px;
+  margin-top: 0px; }
+
+.navbar img {
+  width: 8%;
+  border-radius: 5%; }
+
+.navbar img:hover {
+  cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */

@@ -65,8 +65,11 @@ let ob = {}
   }
   Shelter.findById(req.params.id)
   .then(shelter=>{
-    console.log(shelter)
-    ob.shelter = shelter;
+   /*  let igual = {}
+    if(req.user == ob.shelter){
+      ob.shelter = shelter;
+    } */
+    ob.shelter = shelter
     console.log(ob)
     res.render('Shelter/sheltairDetail', ob)
   })

@@ -4,6 +4,7 @@ const multer = require('multer');
 const Dog = require('../models/Dog')
 const Shelter = require('../models/Shelter')
 const app = express();
+const User = require('../models/User')
 
 
 const uploadCloud = require('../helpers/cloudinary');
@@ -36,14 +37,21 @@ router.get('/shelterList/:id/registerDog', isLoggedIn, (req, res, next) => {
 router.post('/shelterList/:id/registerDog', isLoggedIn ,uploadCloud.single('foto') ,(req,res,next)=>{
     req.body.photoURL = req.file.url;
     //req.user = req.shelter._id; Esto no se usa, mejor se tiene que traer de la ruta anterior
-
     req.body.shelter = req.params.id
-    
+    req.body.user = req.user._id
+    /* req.app.locals.user = req.user */
+
+
     Dog.create(req.body)
+    .then(user=>{
+        return Dog.findByIdAndUpdate(req.user._id, {$push:{user: user.id}}, {new:true})
+        console.log(user)
+    })
     .then(dog =>{
         console.log(dog)
         res.redirect('/shelterList/' + req.params.id + '/shelterDogs')
     })
+
     .catch(e=>console.log(e))
 })
 

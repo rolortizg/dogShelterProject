@@ -13,35 +13,6 @@
   <title>Sheltair</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="color navbar-brand" href="/" style="color:black;font-family:'Open Sans';text-shadow: 0 0 15px #fff;padding-right:30px;font-size:1.8em;">sheltair</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            {{!-- <li class="nav-item active">
-              <a class="nav-link" style="color:black" href="/"> <span class="sr-only">(current)</span></a>
-            </li> --}}
-            {{!-- <li class="nav-item">
-              <a class="nav-link" style="color:black" href="/logout">Log out</a>
-            </li> --}}
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" style="color:black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Your account
-              </a>
-              <div class="dropdown-menu dropdown" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-           
-          </ul>
-        </div>
-      </nav>
       <section class="cover">
         <div class="login-box">
          <h1>Empieza la busqueda</h1>
@@ -50,45 +21,6 @@
               {{#if err}}{{err}}{{/if}}
           </p>
 
-{{!--           
-          <form validated action="/signup" method="POST" enctype="multipart/form-data">
-
-              <h5 id="name">
-                
-                <input required type="text" name="name" placeholder="Name">
-              </h5> 
-              <h5>
-                
-                <input required type="text" name="lastName" placeholder="Last name">
-              </h5> 
-              <h5>
-                <input type="file" name="photo" value="Profile picture">
-                  <br />
-              </h5> 
-              <h5>
-                <input required type="text" name="username" placeholder="Username" value="{{username}}">
-              </h5> 
-              <h5>
-               
-                <input required type="email" placeholder="E-mail" name="email" value="{{email}}">
-              </h5> 
-              <h5>
-              
-                <input required type="password" placeholder="Password" name="password" value="{{password}}">
-              </h5> 
-              <h5>
-            
-                <input required type="password" name="password2" placeholder="Repite tu password" value="{{password2}}">
-              </h5> 
-            
-
-              <button id="submit" type="submit" class="btn btn-warning">Sign up</button>
-
-              
-
-
-
-         </form> --}}
          <form validated action="/signup" method="POST">
             <div class="form-row">
               <div class="form-group col-md-6">

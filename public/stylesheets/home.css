@@ -1,30 +1,4 @@
-/* body {
-  margin: 0 auto;
-  font-family: 'Roboto', sans-serif;
-  padding-left:0;
-} */
 
-
-.dropdown {
-  margin-left:750px;
- 
-}
-.navbar {
-  background-color:  #002366;
-  border-bottom:5px solid skyblue;
-  width: 100vw;
-  height:50px;
-  margin-top:0px;
-}
-
-.navbar img {
-  width:8%;
-  border-radius:5%;
-}
-
-.navbar img:hover {
-  cursor: pointer;
-}
 
 .hova:hover {
   color:blue;
@@ -33,54 +7,52 @@
 .color {
   color:white;
 }
-.cover {
-  height:600px;
-  width:100vw;
-  background-image: url("../images/street-dogs.jpg");
+
+.papi {
+  width:80%;
   background-size:cover;
-  background-position:0% 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
-  align-items:center;
-  border-bottom: 5px solid #002366;
+  margin-left:130px;
+  margin-top:70px;
   
-
-}
-
-.cover p {
- font-size:2em;
- color:white;
- 
  
 }
 
-.image {
-  margin-top:180px;
-  border-radius:5%;
-  width:50%;
-  position:relative;
-  left:27%;
-  /* font-family: 'Open Sans', sans-serif;
-  font-size:6em;
-  color:black;
-  text-shadow: 0 0 15px #fff; */
-  /* border-bottom:10px solid black; */
-  /* text-shadow: 2px 5 5; */
-
-}
-/* .cover img {
-  margin-top:-80px;
-} */
-
-.cover button {
-  width:140%;
-  margin-top:50px;
-  font-size:1.2em;
-  background-color:rgb(255, 219, 88,0.8);
+.car {
+  height:600px;
 }
 
-.divider {
+.logo {
+    width:40%; 
+}
+
+.arriba {
+  padding-bottom:100px;
+}
+
+.dad {
+  display:flex;
+  flex-direction:row;
+ 
+}
+
+.button {
+  margin-left:255px;
+  width:30%;
+  margin-top:30px;
+  background-color:#282828;
+  color:white;
+
+}
+.button2 {
+  margin-left:30px;
+  width:100%;
+  margin-top:30px;
+  color:white;
+  background-color:#282828;
+}
+
+
+/* .divider {
   width:100vw;
   margin:0;
   margin-top:0px;
@@ -89,9 +61,9 @@ padding-bottom:20px;
   background-color:papayawhip;
   border-bottom:5px solid #002366;
   display:flex;
-  /* justify-content:center;
+  justify-content:center;
   flex-direction: row;
-  align-items:center; */
+  align-items:center;
  
 }
 .container {
@@ -145,11 +117,11 @@ padding-bottom:20px;
   width:80%;
   text-align: center;
   font-size:1.3em;
-  /* height:100px; */
-  color:#002366;
-}
+   height:100px; */
+  
 
-.arrow {
+
+/* .arrow {
   width: 30px;
   height:30px;
   padding-top:-30px;
@@ -162,9 +134,9 @@ padding-bottom:20px;
   height:400px;
   width:100vw;
   background-color:darkblue;
-}
+} */
 
-.last-section h1{
+/* .last-section h1{
   margin-left:10%;
   padding-top:70px;
   width:80%;
@@ -177,5 +149,4 @@ padding-bottom:20px;
 footer {
   width:100vw;
   height:100px;
-  background-color:skyblue;
-}
+  background-color:skyblue; */

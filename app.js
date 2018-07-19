@@ -14,13 +14,7 @@ const User = require('./models/User');
 const passport = require('./helpers/passport');
 const app = express();
 
-// Hbs Helpers
 
-hbs.registerHelper('ifLogin', function(userl, usere){
-  if(userl == usere){
-    return this
-  }
-});
 
 //Passport Session
 app.use(session({

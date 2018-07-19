@@ -15,8 +15,8 @@
 
 	<p>{{usuarioLogeado}} === {{shelter.user}}</p>
 
+	
 	{{#if usuarioLogeado}}
-		{{#if shelter.user}}
 		<a href="/shelterList/{{shelter._id}}/registerDog">Registrar tus Peludos!!</a>
 		<a href="/eliminarSheltair">Eliminar Sheltair</a>
 		<a href="/myShelters">Ir a tus Sheltairs</a>
@@ -25,8 +25,9 @@
 
 		<a href="/">Ir a Inicio</a>
 		<a href="/shelterList/{{shelter._id}}/shelterDogs">Ir a la Lista de perros del refugio</a>
+		
 		{{/if}}
-	{{/if}}
+	
 
 </footer>
 

@@ -3,8 +3,15 @@ const Shelter = require('../models/Shelter')
 const Dog = require('../models/Dog')
 const router = express.Router();
 const User = require('../models/User')
+const hbs = require('hbs');
 
 const uploadCloud = require('../helpers/cloudinary');
+
+/* hbs.registerHelper('ifLogin', function(userl, usere, option){
+  if(userl == usere){
+    return this
+  }
+}); */
 
 function isLoggedIn(req,res,next){
   if(req.isAuthenticated()) return next();
@@ -56,7 +63,8 @@ router.get('/shelterList', (req,res)=>{
 /* Mandar un mensaje al refugio del user al refugio */
 
 router.get('/shelterList/:id',(req,res,next)=>{
-let ob = {}
+
+  let ob = {}
   console.log(req.user)
   if(req.user) {
     ob.usuarioLogeado = req.user._id
@@ -65,10 +73,8 @@ let ob = {}
   }
   Shelter.findById(req.params.id)
   .then(shelter=>{
-   /*  let igual = {}
-    if(req.user == ob.shelter){
-      ob.shelter = shelter;
-    } */
+    let shelterid = shelter.user.id
+    console.log(shelterid)
     ob.shelter = shelter
     console.log(ob)
     res.render('Shelter/sheltairDetail', ob)

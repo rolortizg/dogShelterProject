@@ -37,14 +37,17 @@ body {
 #photo {
 position:absolute;
 border: 3px solid skyblue;
-width:300px;
+max-width:300px;
+max-height:250px;
+min-width:300px;
+min-width:300px;
 top:250px;
 left:15%;
 
 }
 
 .header {
-  margin-top:4%;
+  margin-top:7%;
   margin-left:14.5%;
 }
 
@@ -55,7 +58,7 @@ left:15%;
 .bio-area {
   width:24%;
   height:300px;
-  border:2px solid black;
+  border:2px solid #002366;
   margin-left:15%;
   margin-top:0;
 }
@@ -66,12 +69,45 @@ left:15%;
   top:38%;
 }
 
-.follow-tab {
+.barra article{
+  display: flex;
+  max-width: 95%;
+  max-height: 70px;
+  padding-left: 550px; 
+  padding-right:150px;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  box-shadow: 3px 2px 2px 2px #888888;
+  border-bottom: 1px solid grey; 
   background-color:skyblue;
-  width:30%;
+  
 }
+
+.first{
+  margin-right:10px;
+  margin-top:3%;
+}
+
+#fl {
+  margin-left:45%;
+}
+#fl2 {
+  margin-left:55%;
+  margin-bottom:10px;
+}
+#fl3 {
+  margin-left:65%;
+}
+
 .feed {
-  background-color:red;
-  width:20%;
+  text-align:center;
+  position:absolute;
+  border:3px solid #002366;
+  width:40%;
+  right:13%;
+  top:70%;
+  height:100vh;
   
 }

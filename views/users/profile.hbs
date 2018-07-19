@@ -47,12 +47,28 @@
                 <form action="/registerShelter">
                     <button type="submit" class="btn btn-warning submit">Become a sheltair!</button>
                 </form>
-                <div class="follow-tab">
-                    <span>Followers</span>
-                    <span>Following</span>
-                    <span>Rescued dogs</span>
-                    
-                </div>
+                <section class="barra">
+                    <article>
+                        <div class="first">
+                            <h4>Following</h4>
+                            <h3>0</h3>
+                        </div>
+                        <div class="first">
+                            <h4>Followers</h4>
+                            <h3>0</h3>
+                        </div>
+                        <div class="first">
+                            <h4>Rescued Dogs</h4>
+                            <h3>56</h3>
+                        </div>
+                        <div>
+                            <button id="follow">
+                                Follow
+                                {{!-- {{text}} --}}
+                            </button>
+                        </div>
+                    </article>
+                </section>
                     <div class="header">
                        <h2>{{name}}'s Profile</h2>
                     </div>
@@ -63,11 +79,12 @@
                         <br />
                         <h3>Animal/es:</h3>
                     </div>
+                    <div class="feed">
+                       <h1>{{name}}'s Feed</h1>
+                       <div></div>
+                    </div>
                     
-                
-                    
-                
-              
+
            
 
             <form id="form" action="/profile" method="POST" enctype="multipart/form-data">

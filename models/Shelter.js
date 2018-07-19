@@ -19,19 +19,19 @@ const shelterSchema = new Schema({
 		type: Schema.Types.ObjectId,
 		ref: "User"
 	},
-	// followers:[
-	// 	{
-	// 			type: Schema.Types.ObjectId,
-	// 			ref: "Shelter",
-	// 			childPath: "following"
-	// 	}
-	// ],
-	// posts:[
-	// 	{
-	// 			type: Schema.Types.ObjectId,
-	// 			ref: 'Post'
-	// 	}
-	// ],
+	followers:[
+		{
+				type: Schema.Types.ObjectId,
+				ref: "Shelter",
+				childPath: "following"
+		}
+	],
+	posts:[
+		{
+				type: Schema.Types.ObjectId,
+				ref: 'Dog'
+		}
+	],
 	location:{
 			type:{
 					type:String,

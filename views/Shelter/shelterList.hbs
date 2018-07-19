@@ -50,10 +50,10 @@
                     <h1>{{name}}</h1>
                     <p class="location">{{location.address}}</p>
                     
-                    <form action="/shelterList/{{_id}}">
+                    {{!-- <form action="/shelterList/{{_id}}">
                       <button type="submit" class="link btn btn-primary">Ver detalles</button>
-                    <form>
-                    {{!-- <a class="link" href="/shelterList/{{_id}}">Detalles</a> --}}
+                    <form> --}}
+                    <a class="link" href="/shelterList/{{_id}}">Detalles</a>
                     </div>
                 {{/each}}
             </div>

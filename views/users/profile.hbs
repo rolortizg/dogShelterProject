@@ -80,7 +80,16 @@
                     </div>
                     <div class="feed">
                        <h1>{{name}}'s Feed</h1>
-                       <div></div>
+                       <div>
+                           {{#each posts as |post|}}
+                        <div>
+                            {{post.created_at}}
+                            <p>
+                            {{post.user.name}}- <img width="50" src="{{post.user.photoURL}}" alt="">
+                            </p>
+                        </div>
+                            {{/each}}
+                       </div>
                     </div>
                     
 

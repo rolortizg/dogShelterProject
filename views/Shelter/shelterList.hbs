@@ -24,8 +24,8 @@
                 Dropdown
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Settings</a>
-                <a class="dropdown-item" href="#">Become a sheltair</a>
+                <a class="dropdown-item" href="/myShelters">My Sheltairs</a>
+                <a class="dropdown-item" href="/registerShelter">Become a Sheltair</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/logout">Log out</a>
                 </div>
@@ -44,16 +44,16 @@
               </div>
             <div class="listy">
               
-                {{#each this}}
+                {{#each shelt}}
                     <div id="list">
-                    <img src="{{photo}}" class="shelter"> 
-                    <h1>{{name}}</h1>
-                    <p class="location">{{location.address}}</p>
+                    <img src="{{this.photo}}" class="shelter"> 
+                    <h1>{{this.name}}</h1>
+                    <p class="location">{{this.location.address}}</p>
                     
                     {{!-- <form action="/shelterList/{{_id}}">
                       <button type="submit" class="link btn btn-primary">Ver detalles</button>
                     <form> --}}
-                    <a class="link" href="/shelterList/{{_id}}">Detalles</a>
+                    <a class="link" href="/shelterList/{{this._id}}">Detalles</a>
                     </div>
                 {{/each}}
             </div>
@@ -69,9 +69,15 @@
 
 <script>
     var account = document.getElementById('dropdown');
-        account.innerText= "{{name}}"
+        account.innerText= "{{user.name}}"
 </script>
-
+<script>
+  var home = document.getElementById('small-logo');
+    home.addEventListener('click', function(){
+        var plis = window.location.href="http://localhost:3000/";
+        plis.trigger('click');
+  })
+</script>
 </body>
 </html>
 

@@ -4,20 +4,36 @@
    </header>
 
     <div>
-        {{#each this}}
-        <h2>{{nombre}}</h2>
+        {{#each dogs}}
+        <h2>{{this.nombre}}</h2>
 
-        <img src="{{photoURL}}" alt="fotoerror" height="75px" width="100px">
+        <img src="{{this.photoURL}}" alt="fotoerror" height="75px" width="100px">
         <p>
-           La raza:{{raza}}
+           La raza:{{this.raza}}
         </p>
 
         <p>
-            Talla: {{talla}}
+            Talla: {{this.talla}}
         </p>
 
         <p>
-            color: {{color}}
+            color: {{this.color}}
         </p>
-        {{/each}}
+
+        <p>{{usuarioLogeado }} --- {{this.shelter.user}}</p>
+
+    
+
+      {{/each}}
+       <a href="/shelterList"><h3>Ir a los Sheltairs</h3></a> 
+
+      
+     
+
+    
     </div>
+
+    <footer>
+      
+
+    </footer>

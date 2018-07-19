@@ -4,6 +4,7 @@ const User = require('../models/User');
 const passport = require('passport');
 const Shelter = require('../models/Shelter')
 const passportFacebook = require('../helpers/facebook');
+const Dog = require('../models/Dog')
 
 //multer config
 const multer = require('multer');
@@ -35,16 +36,26 @@ function isLoggedIn(req,res,next){
 }
 
 router.get("/profile",isLoggedIn,isActive,(req,res)=>{
-    res.render('users/profile', req.user)
+  let usernew = {}
+  usernew.usuario = req.user
+    Dog.find({user: req.user._id}).sort('-created_at').populate('user')
+    .then(dog=>{
+      usernew.dog = dog
+      console.log(usernew)
+      res.render('users/profile', usernew)
+    })
 })
 
 //Mostrar mis Shelters
 
 router.get('/myShelters', (req,res)=>{
+  let newog = {};
+  newog.user = req.user
   Shelter.find({user: req.user._id})
   .then(shelter=>{
+    newog.shelter = shelter
     console.log(shelter)
-    res.render('users/userShelters', {shelter})
+    res.render('users/userShelters', newog)
   })
   .catch(e=>console.log(e))
 })

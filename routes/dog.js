@@ -4,6 +4,7 @@ const multer = require('multer');
 const Dog = require('../models/Dog')
 const Shelter = require('../models/Shelter')
 const app = express();
+const User = require('../models/User')
 
 
 const uploadCloud = require('../helpers/cloudinary');
@@ -13,6 +14,16 @@ function isLoggedIn(req,res,next){
     if(req.isAuthenticated()) return next();
     return res.redirect('/login?next=/profile')
   }
+
+//Editar Perro, Eliminar o editar.
+
+router.get('/edit/:id', (req,res)=>{
+    Dog.findById(req.params.id)
+    .then(dog=>{
+        res.render('Dog/dogEdit', dog)
+    })
+    .catch(console.log(e));
+})
 
 /* Registrar perrito*/
 router.get('/shelterList/:id/registerDog', isLoggedIn, (req, res, next) => {
@@ -26,17 +37,26 @@ router.get('/shelterList/:id/registerDog', isLoggedIn, (req, res, next) => {
 router.post('/shelterList/:id/registerDog', isLoggedIn ,uploadCloud.single('foto') ,(req,res,next)=>{
     req.body.photoURL = req.file.url;
     //req.user = req.shelter._id; Esto no se usa, mejor se tiene que traer de la ruta anterior
-
     req.body.shelter = req.params.id
+    req.body.user = req.user._id
+    /* req.app.locals.user = req.user */
+
 
     Dog.create(req.body)
+    .then(user=>{
+        return Dog.findByIdAndUpdate(req.user._id, {$push:{user: user.id}}, {new:true})
+        console.log(user)
+    })
     .then(dog =>{
         console.log(dog)
-        return res.redirect('/shelterList/:id/shelterDogs')
+        res.redirect('/shelterList/' + req.params.id + '/shelterDogs')
     })
+
     .catch(e=>console.log(e))
 })
 
+
+//ERRORES NO TOCAR, SE APRENDE DE ELLOS.
 /* router.get('/shelterList/:id/shelterDogs', isLoggedIn, (req,res)=>{
     
     Dog.find()
@@ -47,13 +67,16 @@ router.post('/shelterList/:id/registerDog', isLoggedIn ,uploadCloud.single('foto
     .catch(e=>console.log(e))
 }) */
 
-router.get('/dogList', (req,res)=>{
+/* router.get('/dogList', (req,res)=>{
+
     Dog.find()
     .then(dog=>{
-        res.render('Dog/dogList', dog)
+        doggy.dog = dog
+        console.log(doggy)
+        res.render('Dog/dogList', {dogy})
     })
     .catch(e=>console.log(e))
-})
+}) */
 
 
 

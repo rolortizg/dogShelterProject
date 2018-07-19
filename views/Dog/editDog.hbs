@@ -1,0 +1,41 @@
+<h1>Registra tu perro</h1>
+<form action="/editDog/{{_id}}" method="POST" enctype="multipart/form-data">
+<p>
+    Sube la foto del perro:
+    <input type="file" name="foto" value="{{photoURL}}" required>
+</p>
+
+<p>
+    Introduce la raza, si es criollo deja el campo en blanco:
+    <input type="text" name="raza" placeholder="Criollo" value="{{raza}}" required>
+</p>
+
+<p>
+    La talla del perro:
+    <select name="talla">
+    <option value="grande">Grande</option>
+    <option value="mediana">Mediana</option>
+    <option value="chica">Chica</option>
+    <option value="mini">Mini</option>
+  </select>
+
+</p>
+
+<p>
+    Señas Particulares:
+    <input type="text" name="señasParticulares" value="{{senasParticuales}}" required>
+</p>
+
+<p>
+    Color:
+    <input type="text" name="color" value="{{color}}"  required>
+</p>
+
+<p>
+    Si no tiene nombre deje en blanco<br>
+    Nombre: 
+    <input type="text" name="nombre" placeholder="ninguno" value="{{nombre}}" required>
+</p>
+
+<input type="submit">
+</form>

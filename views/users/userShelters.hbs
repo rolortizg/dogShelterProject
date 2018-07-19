@@ -1,8 +1,84 @@
-{{#each shelter}}
-<div>
-<img src="{{photo}}" class="shelter"> 
-<h1>Nombre del Refugio: {{name}}</h1>
 
-<a href="/shelterList/{{_id}}">Detalles</a>
-</div>
-{{/each}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="../stylesheets/myShelter.css" rel="stylesheet">
+  <title>Sheltair</title>
+</head>
+<body>
+     <nav class="navbar navbar-expand-lg navbar-light">
+        <img src="../images/Small-logo.png" id="small-logo">
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+        
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="dropdown" style="color:white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/ShelterList">Explore Sheltairs</a>
+                <a class="dropdown-item" href="/profile">My profile</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/logout">Log out</a>
+                </div>
+            </li>
+           
+          </ul>
+        </div>
+      </nav>
+      <section>
+            <div class="header">
+                  <h1 style="color:#002366"> Tus refugios:</h1>
+                  <p style="position:absolute;left:0%;left:10%;top:10%;">
+                     Buscar refugios:
+                    <input type="text">
+                  </p>
+                </div>
+                <div>
+                <form action="/registerShelter" method="GET">
+                  <button type="submit" style="position:absolute;right:0%;right:10%;top:10%;" class="btn btn-warning submit2">Agrega un sheltair</button>
+                </form>
+                </div>
+            <div class="listy">
+              
+             {{#each shelter}}
+              <div id="list">
+                <img src="{{photo}}" class="shelter"> 
+                <h1>{{name}}</h1>
+                <p class="location">{{location.address}}</p>
+                <a class="link" href="/shelterList/{{_id}}">Detalles</a>
+                  </div>
+                {{/each}}
+            </div>
+
+      </section> 
+
+
+</script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+    var account = document.getElementById('dropdown');
+        account.innerText= "{{user.name}}"
+</script>
+<script>
+  var home = document.getElementById('small-logo');
+    home.addEventListener('click', function(){
+        var plis = window.location.href="http://localhost:3000/";
+        plis.trigger('click');
+  })
+</script>
+</body>
+</html>
+

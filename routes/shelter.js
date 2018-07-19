@@ -42,6 +42,7 @@ router.post('/registerShelter', isLoggedIn , uploadCloud.single('photo'), (req,r
     .catch(e=>next(e))
 })
 
+
 //Mostrar los refugios disponibles
 
 router.get('/shelterList', (req,res)=>{
@@ -59,27 +60,40 @@ router.get('/shelterList', (req,res)=>{
 /* Mandar un mensaje al refugio del user al refugio */
 
 router.get('/shelterList/:id',(req,res,next)=>{
-let ob = []
+let ob = {}
   console.log(req.user)
   if(req.user) {
-    ob = [{usuarioLogeado: req.user._id}]
+    ob.usuarioLogeado = req.user._id
   } else {
-    ob = []
+    ob = {}
   }
   Shelter.findById(req.params.id)
   .then(shelter=>{
-    ob.shelter = shelter;
+   /*  let igual = {}
+    if(req.user == ob.shelter){
+      ob.shelter = shelter;
+    } */
+    ob.shelter = shelter
     console.log(ob)
-    res.render('Shelter/sheltairDetail', {ob})
+    res.render('Shelter/sheltairDetail', ob)
   })
   .catch(e=>console.log(e))
 })
 
 router.get('/shelterList/:id/shelterDogs', (req,res)=>{
-  Dog.find({shelter: req.params.id})
+  let doggy = {}
+    console.log(req.user)
+    if(req.user) {
+    doggy.usuarioLogeado =  req.user._id
+    } else {
+    doggy = {}
+    }
+  Dog.find({shelter: req.params.id}).populate('shelter')
   .then(dogs=>{
-    console.log(dogs)
-    res.render('Shelter/shelterDogs', dogs)
+   
+    doggy.dogs = dogs
+    
+    res.render('Shelter/shelterDogs', doggy)
   })
 })
 

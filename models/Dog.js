@@ -23,7 +23,11 @@ const dogSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Shelter"
     },
-
+    
+    user:{
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    },
     señasParticulares:{
         type: String,
         default: "perro"

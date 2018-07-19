@@ -14,6 +14,13 @@ const User = require('./models/User');
 const passport = require('./helpers/passport');
 const app = express();
 
+// Hbs Helpers
+
+hbs.registerHelper('ifLogin', function(userl, usere){
+  if(userl == usere){
+    return this
+  }
+});
 
 //Passport Session
 app.use(session({
@@ -74,7 +81,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Sheltair';
 
 
 

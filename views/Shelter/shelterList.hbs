@@ -25,7 +25,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="/myShelters">My Sheltairs</a>
-                <a class="dropdown-item" href="/registerShelter">Become a Sheltair</a>
+                <a class="dropdown-item" href="/profile">My profile</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/logout">Log out</a>
                 </div>
@@ -35,13 +35,18 @@
         </div>
       </nav>
       <section>
-            <div class="header">
-                  <h1> Lista de Refugios:</h1>
-              </div>
-              <div>
-                Buscar refugios:
-                <input type="text">
-              </div>
+           <div class="header">
+                  <h1 style="color:#002366;font-size:4em;"> Todos los refugios</h1>
+                  <p style="position:absolute;left:0%;left:10%;top:10%;">
+                     Buscar refugios:
+                    <input type="text">
+                  </p>
+                </div>
+                <div>
+                <form action="/registerShelter" method="GET">
+                  <button type="submit" style="position:absolute;right:0%;right:10%;top:10%;" class="btn btn-warning submit2">Agrega un sheltair</button>
+                </form>
+                </div>
             <div class="listy">
               
                 {{#each shelt}}

@@ -1,7 +1,3 @@
-
-{{!-- <form method="post" id="doFollow" action="/follow/{{_id}}">
-</form> --}}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,8 +23,8 @@
                 Dropdown
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Settings</a>
-                <a class="dropdown-item" href="#">Become a sheltair</a>
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/logout">Log out</a>
                 </div>
@@ -44,37 +40,21 @@
     </section>     
        <section>
             <img id="photo" src="{{photoURL}}">
-                <form action="/registerShelter">
-                    <button type="submit" class="btn btn-warning submit">Become a sheltair!</button>
-                </form>
-                <div class="follow-tab">
-                    <span>Followers</span>
-                    <span>Following</span>
-                    <span>Rescued dogs</span>
-                    
-                </div>
+               <div class="bio-area">
                     <div class="header">
-                       <h2>{{name}}'s Profile</h2>
+                        <h1>Welcome {{name}}</h1>
                     </div>
-                    <div class="bio-area">
-                        <h3>Ciudad:</h3>
-                        <br />
-                        <h3>Edad:</h3>
-                        <br />
-                        <h3>Animal/es:</h3>
+                    <div class="bio">
+                        <h2>{{name}}'s Profile</h2>
                     </div>
-                    
-                
-                    
-                
-              
-           
+                </div>
+            <button class="submit" type="submit" class="btn btn-warning">Sign in</button>
+
 
             <form id="form" action="/profile" method="POST" enctype="multipart/form-data">
                 <input onchange="submitForm()" name="photo" id="file" style="display:none" type="file">
             </form>
        </section>
-       
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

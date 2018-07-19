@@ -31,8 +31,10 @@ router.post('/registerShelter', isLoggedIn , uploadCloud.single('photo'), (req,r
     
     Shelter.create(req.body)
     .then(user=>{
-        
-        return Shelter.findByIdAndUpdate(req.user._id, {$push:{user: user._id}});
+        return Shelter.findByIdAndUpdate(req.user._id, {$push:{user: user._id}}, {new:true})
+        // .then(r=>{
+        //   console.log(r)
+        // })
     })
     .then(shelter=>{
         res.redirect('/myShelters')
@@ -69,6 +71,22 @@ let ob = []
   })
   .catch(e=>console.log(e))
 })
+
+router.get('/shelterList/:id/shelterDogs', (req,res)=>{
+  Dog.find({shelter: req.params.id})
+  .then(dogs=>{
+    console.log(dogs)
+    res.render('Shelter/shelterDogs', dogs)
+  })
+})
+
+/* Shelter.findById(req.params.id).populate('Dog')
+.then(shelter=>{
+    return Dog.findById({shelter: req.shelter.id})
+}).then(dog=>{
+  res.render('Shelter/shelterDogs', dog)
+})
+.catch(e=>console.log(e)) */
 
 
 /* 

@@ -19,7 +19,7 @@ const dogSchema = new Schema({
 
     color: String,
 
-    Shelter:{
+    shelter:{
         type: Schema.Types.ObjectId,
         ref: "Shelter"
     },

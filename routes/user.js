@@ -41,7 +41,7 @@ router.get("/profile",isLoggedIn,isActive,(req,res)=>{
 //Mostrar mis Shelters
 
 router.get('/myShelters', (req,res)=>{
-  Shelter.find({user:req.user._id})
+  Shelter.find({user: req.user._id})
   .then(shelter=>{
     console.log(shelter)
     res.render('users/userShelters', {shelter})

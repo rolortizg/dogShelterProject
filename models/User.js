@@ -30,6 +30,10 @@ const userSchema = new Schema({
         default: false
     },
 
+   /*  shelters:[{
+        type: Schema.Types.ObjectId,
+        ref: "Shelter",
+    }] */
     // role:{
     //     type:String,
     //     enum:['User','Houser','Admin'],

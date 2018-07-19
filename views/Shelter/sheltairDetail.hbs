@@ -1,8 +1,8 @@
 <section>
-	<img src="{{ob.shelter.photo}}" alt="" class="shelter">
-	<h1>Nombre del refugio: {{ob.shelter.name}}</h1>
-	<p>{{ob.shelter.email}}</p>
-	<p>{{ob.shelter.location.address}}</p>
+	<img src="{{shelter.photo}}" alt="" class="shelter">
+	<h1>Nombre del refugio: {{shelter.name}}</h1>
+	<p>{{shelter.email}}</p>
+	<p>{{shelter.location.address}}</p>
 </section>
 
 {{!-- El shelter detail sea el perfil despues de rellenar el formulario de crear --}}
@@ -13,18 +13,19 @@
 
 <footer>
 
-	{{#if ob.[0]}}
+	<p>{{usuarioLogeado}} === {{shelter.user}}</p>
 
-		<a href="/shelterList/{{ob.shelter._id}}/registerDog">Registrar tus Peludos!!</a>
+	{{#if usuarioLogeado}}
+		{{#if shelter.user}}
+		<a href="/shelterList/{{shelter._id}}/registerDog">Registrar tus Peludos!!</a>
 		<a href="/eliminarSheltair">Eliminar Sheltair</a>
 		<a href="/myShelters">Ir a tus Sheltairs</a>
-		<a href="/shelterList/{{ob.shelter._id}}/shelterDogs">Ir a tus perritos</a>
-
-			{{else}}
+		<a href="/shelterList/{{shelter._id}}/shelterDogs">Ir a tus perritos</a>
+		{{else}}
 
 		<a href="/">Ir a Inicio</a>
-		<a href="/shelterList/{{ob.shelter._id}}/shelterDogs">Ir a la Lista de perros del refugio</a>
-
+		<a href="/shelterList/{{shelter._id}}/shelterDogs">Ir a la Lista de perros del refugio</a>
+		{{/if}}
 	{{/if}}
 
 </footer>
@@ -33,8 +34,8 @@
 
 <script>
 let center = {
-	lat:{{ob.shelter.location.coordinates.[1]}},
-	lng:{{ob.shelter.location.coordinates.[0]}}
+	lat:{{shelter.location.coordinates.[1]}},
+	lng:{{shelter.location.coordinates.[0]}}
 		};
 	let title = '{{name}}'
 	const map = new google.maps.Map(

@@ -69,6 +69,13 @@ left:15%;
   top:38%;
 }
 
+.submit2 {
+  position:absolute;
+  right:5%;
+  top:30%;
+  background-color:skyblue;
+}
+
 .barra article{
   display: flex;
   max-width: 95%;

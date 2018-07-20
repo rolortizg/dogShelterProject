@@ -1,5 +1,5 @@
 .container div{
-  margin: 15px;
+  margin-top: 15px;
 }
 
 .container{
@@ -8,7 +8,8 @@
   border: 2px solid black;
   border-radius: 5%;
   background-color: white;
-  box-shadow: 3px 3px 3px 3px #888888;  
+  box-shadow: 3px 3px 3px 3px #888888;
+  padding-top: 10px;
 }
 
 .alinear{
@@ -18,7 +19,7 @@
 }
 
 body{
-  background-image: url('../images/Doberman.jpg');
+  background-color: whitesmoke;
   background-size: 100%;
   background-repeat: no-repeat
 }

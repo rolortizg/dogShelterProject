@@ -1,4 +1,6 @@
 .container{
+  margin-top:50px;
+  margin-bottom:50px;
   width: 400px;
   height: 680px;
   border: 2px solid black;
@@ -8,13 +10,13 @@
 }
 
 .alinear{
-  margin-top: 20px;
+  margin-top: 10px;
   margin-left: 130px;
   align-content: center
 }
 
 body{
-  background-image: url("http://www.peluqueriacaninapatitas.es/wp-content/uploads/2015/02/fondo.jpg");
+  
   background-size: 100%;
   background-repeat: no-repeat
 }

@@ -48,7 +48,7 @@ router.post('/shelterList/:id/registerDog', isLoggedIn ,uploadCloud.single('foto
     })
     .then(dog =>{
         console.log(dog)
-        res.redirect('/shelterList/' + req.params.id + '/shelterDogs')
+        res.redirect('/profile')
     })
 
     .catch(e=>console.log(e))

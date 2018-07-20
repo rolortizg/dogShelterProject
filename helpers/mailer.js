@@ -16,7 +16,7 @@ exports.sendActivationLink = (user) => {
         from: '"Sheltair 👻" <roloortizgarcia@gmail.com>', // sender address
         to: user.email, // list of receivers
         subject: 'Bienvenido' + user.name, // Subject line
-        html: "<h2>Activa tu cuenta:</h2> <a href='http://localhost:3000/activation/?user=" +user._id + "'  > Click aqui </a>", // plain text body
+        html: "<h2>Activa tu cuenta:</h2> <a href='https://sleepy-lowlands-81745.herokuapp.com/activation/?user=" + user._id + "'  > Click aqui </a>", // plain text body
         //html: '<b>Hello world?</b>' // html body
     };
     transporter.sendMail(options, (err,info)=>{

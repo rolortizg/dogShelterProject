@@ -24,7 +24,7 @@
   </div>
     <div class="form-group">
     <label for="color">Apellido</label>
-    <input type="" id="color" name="lastName" placeholder="perez" class="form-control" required>
+    <input type="" id="color1" name="lastName" placeholder="perez" class="form-control" required>
   </div>
 
   <div class="form-group">
@@ -41,13 +41,15 @@
     </div>
     <div class="form-group">
     <label for="pass4">Introduce tu contraseña</label>
-    <input type="password" class="form-control" id="pass4" name="password2" required>
+    <input type="password" class="form-control" id="passs4" name="password2" required>
     </div>
 
     <button type="submit" class="btn btn-secondary alinear">Sign Up</button>
     
     
     </div>
+
+    <img id="face" style="width: 40%" style="margin-left: 100px" src="https://comedydefensivedriving.com/images2011/fb-sign-in-button.png">
 
         </form>
     </div>
@@ -97,7 +99,7 @@
 </html>
 
 <script>
-    var button = document.getElementById('fb');
+    var button = document.getElementById('face');
     button.addEventListener('click', function(){
         var click = window.location.href="https://sleepy-lowlands-81745.herokuapp.com/facebook";
         click.trigger('click');

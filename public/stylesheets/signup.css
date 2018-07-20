@@ -3,7 +3,7 @@
 }
 .container{
   width: 400px;
-  height: 600px;
+  height: 680px;
   margin-top: 40px;
   border-radius: 5%;
   background-color: white;
@@ -11,10 +11,19 @@
   padding-top: 10px;
 }
 
+.container img{
+  width: 30%;
+  align-content: center;
+}
+
 .alinear{
   margin-top: 20px;
   margin-left: 130px;
   align-content: center
+}
+img{
+  width: 30%;
+  position: absolute;
 }
 
 body{
@@ -62,12 +71,6 @@ body{
   margin-bottom:5%;
 }
 
-#fb {
-  width:35%;
-}
-#fb:hover {
-  cursor: pointer;
-}
 
 #name {
   margin-top:10%;

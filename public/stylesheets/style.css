@@ -16,6 +16,11 @@ body {
 .dropdown {
   margin-left: 1000px; }
 
+#face {
+  margin-left: 90px;
+  margin-top: 8px;
+  margin-bottom: 10px; }
+
 .navbar {
   background-color: #282828;
   /* box-shadow: 3px 3px 3px 3px #888888; */

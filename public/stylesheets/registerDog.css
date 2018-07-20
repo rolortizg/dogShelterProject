@@ -16,7 +16,11 @@
 }
 
 body{
+<<<<<<< HEAD
   
+=======
+  background-color: whitesmoke;
+>>>>>>> aa1d16fa5dc487f65b0234764d762c2291049804
   background-size: 100%;
   background-repeat: no-repeat
 }

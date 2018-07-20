@@ -1,29 +1,4 @@
-body {
-  margin: 0 auto;
-  font-family: 'Roboto', sans-serif;
 
-}
-
-.dropdown {
-  margin-left:750px;
- 
-}
-.navbar {
-  background-color:  #002366;
-  border-bottom:5px solid skyblue;
-  width: 100vw;
-  height:50px;
-  
-}
-
-.navbar img {
-  width:8%;
-  border-radius:5%;
-}
-
-.navbar img:hover {
-  cursor: pointer;
-}
 .cover {
   height:100vh;
   width:100vw;

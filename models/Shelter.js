@@ -9,6 +9,8 @@ const shelterSchema = new Schema({
 	},
 	email: String,
 
+	phone: Number,
+
 	dogs:[{
 		type: Schema.Types.ObjectId,
 		ref: "Dog",

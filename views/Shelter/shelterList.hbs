@@ -13,35 +13,11 @@
   <title>Sheltair</title>
 </head>
 <body>
-     <nav class="navbar navbar-expand-lg navbar-light">
-        <img src="../images/Small-logo.png" id="small-logo">
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-        
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="dropdown" style="color:white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/myShelters">My Sheltairs</a>
-                <a class="dropdown-item" href="/profile">My profile</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/logout">Log out</a>
-                </div>
-            </li>
-           
-          </ul>
-        </div>
-      </nav>
       <section>
-           <div class="header">
-                  <h1 style="color:#002366;font-size:4em;"> Todos los refugios</h1>
-                  <p style="position:absolute;left:0%;left:10%;top:10%;">
-                     Buscar refugios:
-                    <input type="text">
-                  </p>
-                </div>
+            <form class="srch form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Busca un refugio" aria-label="Search">
+              <button class="bton btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+           </form>
                 <div>
                 <form action="/registerShelter" method="GET">
                   <button type="submit" style="position:absolute;right:0%;right:10%;top:10%;" class="btn btn-warning submit2">Agrega un sheltair</button>
@@ -52,13 +28,14 @@
                 {{#each shelt}}
                     <div id="list">
                     <img src="{{this.photo}}" class="shelter"> 
-                    <h1>{{this.name}}</h1>
+                    <h1 class="hd">{{this.name}}</h1>
                     <p class="location">{{this.location.address}}</p>
                     
                     {{!-- <form action="/shelterList/{{_id}}">
                       <button type="submit" class="link btn btn-primary">Ver detalles</button>
                     <form> --}}
-                    <a class="link" href="/shelterList/{{this._id}}">Detalles</a>
+                      <a href="/shelterList/{{this._id}}" class="link badge badge-secondary">Detalles</a>
+                    {{!-- <a class="link" href="/shelterList/{{this._id}}">Detalles</a> --}}
                     </div>
                 {{/each}}
             </div>

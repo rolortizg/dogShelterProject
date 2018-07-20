@@ -39,8 +39,7 @@ router.post('/shelterList/:id/registerDog', isLoggedIn ,uploadCloud.single('foto
     //req.user = req.shelter._id; Esto no se usa, mejor se tiene que traer de la ruta anterior
     req.body.shelter = req.params.id
     req.body.user = req.user._id
-    /* req.app.locals.user = req.user */
-
+    
 
     Dog.create(req.body)
     .then(user=>{

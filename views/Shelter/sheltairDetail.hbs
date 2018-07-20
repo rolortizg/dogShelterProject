@@ -12,50 +12,19 @@
   <title>Sheltair</title>
 </head>
 <body>
-     <nav class="navbar navbar-expand-lg navbar-light">
-        <img src="../images/Small-logo.png" id="small-logo">
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-        
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="dropdown" style="color:white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/myShelters">My Sheltairs</a>
-                <a class="dropdown-item" href="/profile">My profile</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/logout">Log out</a>
-                </div>
-            </li>
-           
-          </ul>
-        </div>
-      </nav>
-							<section>
-					<img src="{{shelter.photo}}" alt="" class="shelter">
-					<h1>Nombre del refugio: {{shelter.name}}</h1>
-					<p>{{shelter.email}}</p>
-					<p>{{shelter.location.address}}</p>
-				</section>
+			<header>
 
-				{{!-- El shelter detail sea el perfil despues de rellenar el formulario de crear --}}
-				{{!-- Introducir los perros eso se hace con populate --}}
-				{{!-- Que el shelter solo sea del usuario y sus dogs--}}
-
-				<div id="map"></div>
-
-				<footer>
-
-					<p>{{usuarioLogeado}} === {{shelter.user}}</p>
+					{{!-- <p>{{usuarioLogeado}} === {{shelter.user}}</p> --}}
 
 					{{#if usuarioLogeado}}
 						{{#if shelter.user}}
-						<a href="/shelterList/{{shelter._id}}/registerDog">Registrar tus Peludos!!</a>
-						<a href="/eliminarSheltair">Eliminar Sheltair</a>
-						<a href="/myShelters">Ir a tus Sheltairs</a>
-						<a href="/shelterList/{{shelter._id}}/shelterDogs">Ir a tus perritos</a>
+						{{!-- <a href="/shelterList/{{shelter._id}}/registerDog">Registra un animal</a> --}}
+						<a href="/shelterList/{{shelter._id}}/registerDog" class="badge badge-secondary">Registra animal</a>
+						{{!-- <a href="/eliminarSheltair">Eliminar Sheltair</a> --}}
+						<a href="/eliminarSheltair" class="badge badge-danger">Eliminar</a>
+						{{!-- <a href="/myShelters">Ir a tus Sheltairs</a> --}}
+						{{!-- <a href="/shelterList/{{shelter._id}}/shelterDogs">Ver animales</a> --}}
+						<a href="/shelterList/{{shelter._id}}/shelterDogs" class="badge badge-secondary">Ver animales</a>
 						{{else}}
 
 						<a href="/">Ir a Inicio</a>
@@ -63,7 +32,27 @@
 						{{/if}}
 					{{/if}}
 
-				</footer>
+				</header>
+
+				<section class="organizer">
+					<div id="lista">
+						<img src="{{shelter.photo}}" alt="" class="shelterD">
+						<h1> {{shelter.name}}</h1>
+						<h3> {{shelter.email}}</h3>
+						<div class="loc">	
+							<h4 class="location2"> {{shelter.location.address}}</h4>
+						</div>
+						<div id="map"></div>					
+					</div>
+				</section>
+
+				{{!-- El shelter detail sea el perfil despues de rellenar el formulario de crear --}}
+				{{!-- Introducir los perros eso se hace con populate --}}
+				{{!-- Que el shelter solo sea del usuario y sus dogs--}}
+
+				
+
+				
 
 				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeU5wvSFhoHGD1YkXYnGh6DjskJp-LkRI"></script>
 

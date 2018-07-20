@@ -13,72 +13,34 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light">
-     <img src="../images/Small-logo.png" id="small-logo">
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="hova nav-link " style="color:white;margin-left:30px;" href="/shelterList">Explore<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link hova" style="color:white" href="/login">Login</a>
-        </li>
-        <li class="nav-item dropdown cola">
-            <a class="nav-link dropdown-toggle" id="dropdown" style="color:white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Your account
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/shelterList">Explore shelters</a>
-              <a class="dropdown-item" href="/myShelters">My shelters</a>
-              <div class="dropdown-divider"></div> 
-              <a class="dropdown-item" href="/logout">Log out</a>
-            </div>
-      </li>
-       
-      </ul>
-    </div>
-  </nav>
 
-  <div class="cover">
-    <div>
-      <img class="image" src="../images/Logo.png">
-      {{!-- <h1>sheltair</h1> --}}
-    </div>
-    
-    <div>
-     
-    </div>
-    <form action="/signup" method="GET">
-      <button type="submit" class="btn btn-warning">Regístrate</button>
-    </form>
-  </div>
-  <section class="divider">
-    
-  <div class="container">
-    {{!-- <img class="arrow" src="http://cdn.onlinewebfonts.com/svg/img_549090.png"> --}}
-      <h1 style="text-align:center;padding-top:2%;font-size:3em;color:#002366;">¿Como funciona?</h1>
-      <div class="row">
-         
-        <div class="col col1">
-          <h3><strong style="color:#002366">sheltairs</strong></h3>
-          <img class="img1" alt="No se pudo mostrar la imagen" src="https://img.clipartxtras.com/07453797e7bc8ae3db4edf6475706c73_house-black-clip-art-at-clkercom-vector-clip-art-online-house-clipart-black-and-white-png_588-600.png">
-          <p>Incluyase en nuestra creciente lista de <strong>sheltairs</strong style="color:skyblue">. <br /> Suba fotos de los animales entrantes y espere a su mensaje!  </p>
-        </div>
-        <div class="col col2">
-          <h3><strong style="color:#002366">adoptadores</strong></h3>
-          <img class="img2" alt="No se pudo mostrar la imagen" src="http://worldartsme.com/images/binoculars-clipart-1.jpg">
-          <p>Buscas <strong>rescatar</strong> animales de refugio? <br />Regístrate y empieza la busqueda de tu nuevo mejor amigo!</p>
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="papi carousel-inner">
+      <div class="carousel-item active">
+        <img class=" car d-block w-100" src="../images/Doberman.jpg" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="car d-block w-100" src="./images/street-dogs.jpg" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="car d-block w-100" src="./images/DPC-autumn-leaves.jpg" alt="Third slide">
+      </div>
+      <div class="arriba carousel-caption d-none d-md-block">
+        <img class="logo" alt="No funciona" src="./images/logo-m.png">
+       <div class="dad"> 
+          <form action="/signup" method="GET">
+            <button type="submit" class="button btn btn-warning">Sign up</button>
+          </form>
+          <form action="/login" method="GET">
+            <button type="submit" class="button2 btn btn-warning">Login</button>
+          </form>
         </div>
       </div>
+      </div>
     </div>
-  </section>
-  <section class="last-section">
-      <h1>"Para qué comprar, si hay tantos que necesitan un hogar..."</h1>
-  </section>
-  <footer>
+    
 
-  </footer>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

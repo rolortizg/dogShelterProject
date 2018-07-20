@@ -106,3 +106,42 @@ Ya cuidado abajo de aqui que es shelterDetail */
 .loc {
  
 }
+
+header {
+  display:flex;
+  justify-content:center;
+}
+
+.link1 {
+  margin-bottom:30px;
+  margin-top:30px;
+  padding:20px;
+  
+}
+
+.link2 {
+  margin-top:30px;
+  padding:20px;
+  margin-left:20px;
+  margin-bottom:30px;
+}
+
+.dog {
+text-align:center;
+}
+
+.img {
+
+}
+
+.raza {
+
+}
+
+.talla {
+
+}
+
+.color {
+
+}

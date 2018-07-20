@@ -59,10 +59,10 @@
                 </div>
                <div>
         </section>  --}}
-    <div class="listy"> 
+    <div class=""> 
         {{#each dogs}}
-        <div id="list">
-        <h2>{{this.nombre}}</h2>
+        
+        <h2 style="color:red;">{{this.nombre}}</h2>
 
         <img src="{{this.photoURL}}" alt="fotoerror">
         <p>
@@ -79,10 +79,12 @@
         </p>
         <a href="/shelterList"><h3>Ir a los Sheltairs</h3></a> 
         <p>{{usuarioLogeado }} --- {{this.shelter.user}}</p>
-      {{/each}}
+      
+             
+        {{/each}}
        
-        </div>
-    </div>
+        
+    
       
 
 

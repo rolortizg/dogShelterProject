@@ -20,29 +20,23 @@
                 {{#if err}}{{err}}{{/if}}
             </p>
             <h1>Log in</h1>
-
+          
             <form action="/login" method="POST">
 
-                <h5>
-                  Email:
-                  <input required id="email"  type="email" name="email" value="{{email}}">
-                </h5>
-                <h5>
-                  Password:
-                  <input required id="password"  type="password" name="password" value="{{password}}">
-                </h5>
+            <div class="form-row">
+              <div class="le form-group col-md-6">
+                <label style="margin-left:120px;" for="inputEmail4">Email</label>
+                <input  type="email" class="lef form-control" id="inputEmail4" name="email" value="{{email}}" placeholder="Email">
+              </div>
+                <div class="le form-group col-md-6">
+                <label style="margin-left:120px;" for="inputPassword4">Password</label>
+                <input type="password" class="ri form-control" id="inputPassword4" name="password" value="{{password}}" placeholder="Password">
+              </div>
+              
                 <button id="submit" type="submit" class="btn btn-warning">Sign in</button>
-                
-            {{!-- <fb:login-button 
-              scope="public_profile,email"
-              onlogin="checkLoginState();">
-            </fb:login-button> --}}
-            
+           
             </form>
-                  {{!-- <form action="/profile" method="GET"></form>
-                  <button id="submit" type="submit" class="btn btn-warning">Sign in</button>
-                </form> --}}
-            {{!-- <a href="/facebook"> Sign in with facebook</a> --}}
+              
             <img id="fb" src="https://comedydefensivedriving.com/images2011/fb-sign-in-button.png">
         </div>  
       </section>  

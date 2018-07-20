@@ -13,6 +13,7 @@
   background-size:cover;
   margin-left:130px;
   margin-top:70px;
+  border:8px solid black;
   
  
 }
@@ -41,6 +42,7 @@
   margin-top:30px;
   background-color:#282828;
   color:white;
+  border:1px solid black;
 
 }
 .button2 {
@@ -49,6 +51,7 @@
   margin-top:30px;
   color:white;
   background-color:#282828;
+  border:1px solid black;
 }
 
 .listy {

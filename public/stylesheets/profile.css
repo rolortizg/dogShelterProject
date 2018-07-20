@@ -43,10 +43,11 @@ left:15%;
   
 }
 
-.bio-area h3 {
+.bio-area h5 {
     margin-top:20px;
     padding-top:10px;
     margin-left:25px;
+    text-align:center;
 
 }
 

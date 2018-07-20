@@ -43,14 +43,14 @@
                     </article>
                 </section>
                     <div class="header">
-                       <h2>{{usuario.name}}'s Profile</h2>
+                       
                     </div>
                     <div class="bio-area">
-                        <h3><span style="text-decoration:underline">Ciudad:</span> Ciudad de Mexico</h3>
+                        <h5><span style="text-decoration:underline;">Ciudad:</span><br /> Ciudad de Mexico</h5>
                         <br />
-                        <h3><span style="text-decoration:underline">Edad: </span>22</h3>
+                        <h5><span style="text-decoration:underline;margin-bottom:10px;">Edad: </span><br />22</h5>
                         <br />
-                        <h3><span style="text-decoration:underline">Animal/es:</span> Perros,gatos</h3>
+                        <h5><span style="text-decoration:underline">Animal/es:</span><br /> Perros,gatos</h5>
                     </div>
                     <div class="feed">
                         <div class="bonito">
@@ -61,12 +61,13 @@
                                 <div style="display:flex;justify-content:center;margin-top:20px;">
                                     <div style="border:3px solid black;margin-top:20px;border-radius:5%;">
                                         <img style="margin:20px;" width="200" src="{{post.photoURL}}" alt="">
-                                        <p style="width:150px;margin-left:25px;">
+                                        <p style="width:150px;margin-left:50px;">
                                         {{post.created_at}}
                                         </p>
-                                        <p>
+                                        <h5><strong>
                                         {{post.nombre}}
-                                        </p>
+                                        </strong>
+                                        </h5>
                                          <a href="/shelterList/{{this._id}}" class="link badge badge-secondary">Detalles</a>
                                     <div>
                                 </div>
@@ -110,7 +111,7 @@
 <script>
   var home = document.getElementById('small-logo');
     home.addEventListener('click', function(){
-        var plis = window.location.href="http://localhost:3000/";
+        var plis = window.location.href="https://sleepy-lowlands-81745.herokuapp.com";
         plis.trigger('click');
   })
 </script>

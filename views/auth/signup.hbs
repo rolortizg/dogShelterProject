@@ -13,7 +13,46 @@
   <title>Sheltair</title>
 </head>
 <body>
-      <section class="cover">
+
+  <section class="container">
+    <div class="cont">      
+<form action="/registerShelter" method="POST" enctype="multipart/form-data">
+  <div class="container1 register-box1">
+    <h1>Empieza la Busqueda</h1>  
+    <label for="exampleFormControlInput1">Tu nombre</label>
+    <input type="text" name="name"  class="form-control" id="exampleFormControlInput1" placeholder="juan" required>
+  </div>
+    <div class="form-group">
+    <label for="color">Apellido</label>
+    <input type="" id="color" name="lastName" placeholder="perez" class="form-control" required>
+  </div>
+
+  <div class="form-group">
+    <label for="color">Email</label>
+    <input type="email" id="color" name="email" placeholder="perritos@perritos.com" class="form-control" required>
+  </div>
+  <div class="form-group">
+    <label for="user">Username</label>
+    <input type="text" class="form-control" id="address"  name="username" required>
+   </div>
+    <div class="form-group">
+    <label for="pass4">Introduce tu contraseña</label>
+    <input type="password" class="form-control" id="pass4" name="password" required> 
+    </div>
+    <div class="form-group">
+    <label for="pass4">Introduce tu contraseña</label>
+    <input type="password" class="form-control" id="pass4" name="password2" required>
+    </div>
+
+    <button type="submit" class="btn btn-secondary alinear">Sign Up</button>
+    
+    
+    </div>
+
+        </form>
+    </div>
+</section>
+{{!--       <section class="cover">
         <div class="login-box">
          <h1>Empieza la busqueda</h1>
 
@@ -49,22 +88,10 @@
                 <label for="inputPassword4">Repite tu password</label>
                 <input type="password" class="form-control" id="inputPassword4" name="password2" value="{{password2}}" placeholder="Password">
               </div>
-            </div>
+            </div>--}}
             
-            {{!-- <div class="form-group">
-              <label for="inputAddress">Address</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-            </div> --}}
-            <button type="submit" class="btn btn-primary">Sign in</button>
-          </form>
+          
 
-                    {{!-- <form action="/profile" method="GET"></form>
-                      <button id="submit" type="submit" class="btn btn-warning">Sign in</button>
-                    </form> --}}
-                {{!-- <a href="/facebook"> Sign in with facebook</a> --}}
-        <img id="fb" src="https://comedydefensivedriving.com/images2011/fb-sign-in-button.png">
-            </div>  
-      </section>  
 
 </body>
 </html>

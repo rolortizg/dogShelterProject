@@ -1,4 +1,31 @@
+.container div{
+  margin-bottom: 10px;
+}
+.container{
+  width: 400px;
+  height: 600px;
+  margin-top: 40px;
+  border-radius: 5%;
+  background-color: white;
+  box-shadow: 3px 3px 3px 3px #888888;
+  padding-top: 10px;
+}
 
+.alinear{
+  margin-top: 20px;
+  margin-left: 130px;
+  align-content: center
+}
+
+body{
+  background-color: whitesmoke;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height:100vh;
+}
+
+
+/* 
 .cover {
   height:100vh;
   width:100vw;
@@ -17,10 +44,6 @@
   position:absolute;
   top:15%;
   left:55%;
-}
-
-.login-box h1 {
-  /* border-bottom:3px solid black; */
 }
 
 #email {
@@ -52,4 +75,4 @@
 
 #file {
   border-radius:5%;
-}
+} */

@@ -23,7 +23,7 @@ section{
 }
 
 #list {
-  border:4px solid black;
+  /* border:4px solid black; */
   margin-top:5%;
   border-radius:5%;
   max-width:30%;
@@ -74,7 +74,7 @@ Ya cuidado abajo de aqui que es shelterDetail */
 
 #lista {
   width:80vw;
-  border:4px solid black;
+  box-shadow:3px 3px 3px 3px #888888;
   border-radius:5%;
   text-align:center;
   

@@ -16,18 +16,14 @@
   <title>Sheltair</title>
 </head>
 <body>
-      <section id="cover">
-          <div>
-              
-          </div>      
-    </section>     
+         
        <section>
             <img id="photo" src="{{usuario.photoURL}}">
                 <form action="/registerShelter">
-                    <button type="submit" class="btn btn-warning submit">Become a sheltair!</button>
+                    <button type="submit" class="bton btn btn-warning submit">Become a sheltair!</button>
                 </form>
                 <form action="/shelterList">
-                    <button type="submit" class="btn btn-warning submit2">Explore sheltairs</button>
+                    <button type="submit" class="btn2 btn btn-warning submit2">Explore sheltairs</button>
                 </form>
                 <section class="barra">
                     <article>
@@ -40,10 +36,9 @@
                             <h3>1</h3>
                         </div>
                         <div>
-                            <button id="follow">
-                                Follow
-                                {{!-- {{text}} --}}
-                            </button>
+                           <form action="/follow">
+                                 <button type="submit" class="btn3 btn btn-warning submit2">FOLLOW</button>
+                            </form>
                         </div>
                     </article>
                 </section>
@@ -58,17 +53,26 @@
                         <h3><span style="text-decoration:underline">Animal/es:</span> Perros,gatos</h3>
                     </div>
                     <div class="feed">
-                       <h1>{{usuario.name}}'s Feed</h1>
-                       <div>
-                           {{#each dog as |post|}}
-                        <div>
-                            {{post.created_at}}
-                            <p>
-                            {{post.nombre}}- <img width="50" src="{{post.photoURL}}" alt="">
-                            </p>
+                        <div class="bonito">
+                            <h1>{{usuario.name}}'s Feed</h1>
+                            <hr />
+                            <div>
+                                {{#each dog as |post|}}
+                                <div style="display:flex;justify-content:center;margin-top:20px;">
+                                    <div style="border:3px solid black;margin-top:20px;border-radius:5%;">
+                                        <img style="margin-top:20px;" width="200" src="{{post.photoURL}}" alt="">
+                                        <p>
+                                        {{post.created_at}}
+                                        </p>
+                                        <p>
+                                        {{post.nombre}}
+                                        </p>
+                                         <a href="/shelterList/{{this._id}}" class="link badge badge-secondary">Detalles</a>
+                                    <div>
+                                </div>
+                                    {{/each}}
+                            </div>
                         </div>
-                            {{/each}}
-                       </div>
                     </div>
                     
 
